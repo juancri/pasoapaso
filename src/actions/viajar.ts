@@ -4,8 +4,8 @@ import { EntityFactory } from "../types";
 export default async function* viajar(factory: EntityFactory): AsyncIterable<string>
 {
 	// In quarantine?
-	const source = await factory.requestComuna('Comuna de origen');
-	if (source.phase.number === 1)
+	const origin = await factory.requestComuna('Comuna de origen');
+	if (origin.phase.number === 1)
 	{
 		// In quarantine
 		// Vaccinated?
@@ -20,6 +20,13 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 		}
 
 		// Vaccinated
+		// Is destination in the same territorial unit?
+		const destination = await factory.requestComuna('Comuna de destino');
+		if (origin === destination) {
+			// TODO: Define behavior
+			return;
+		}
+
 		// Has mobility pass?
 		const hasPass = await factory.requestMobilityPass();
 		if (!hasPass)
