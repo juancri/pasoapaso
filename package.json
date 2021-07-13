@@ -1,0 +1,24 @@
+{
+  "name": "pasoapaso",
+  "version": "1.0.0",
+  "description": "Reglas del plan Paso a Paso",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juancri/pasoapaso.git"
+  },
+  "author": "JC Olivares <juancri@juancri.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juancri/pasoapaso/issues"
+  },
+  "homepage": "https://github.com/juancri/pasoapaso#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0"
+  }
+}
