@@ -17,7 +17,7 @@ export interface BooleanEntity extends Entity
 	value: boolean;
 }
 
-export interface EntityGroup<T>
+export interface EntityGroup<T extends Entity>
 {
 	name: string;
 	entities: T[]
