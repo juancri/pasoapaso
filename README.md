@@ -13,7 +13,9 @@ Las acciones actualmente disponibles en este repositorio son:
 |Nombre |Estado
 |-|-
 |[Desplazarse dentro de la misma comuna](src/actions/desplazarse.ts) |Implementada
-|[Viajar entre comunas](src/actions/viajar.ts) |Incompleta
+|[Viajar entre comunas](src/actions/viajar.ts) |Implementada
+|Viajar al extranjero |Planificada
+|Viajar desde el extranjero |Planificada
 |Realizar una reunión presencial |Planificada
 |Ir a comer a un restaurante |Planificada
 |Ir a un casino |Planificada
