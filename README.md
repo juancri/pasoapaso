@@ -19,4 +19,8 @@ Las acciones actualmente disponibles en este repositorio son:
 |Ir a un casino |Planificada
 |Ir a un gimnasio |Planificada
 |Organizar un evento con público |Planificada
+|Salir a hacer deporte |Planificada
+|Ir a clases |Planificada
+|Abrir mi negocio |Planificada
+|Abrir mi restaurante |Planificada
 
