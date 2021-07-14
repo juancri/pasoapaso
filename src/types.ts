@@ -6,19 +6,10 @@ export interface Entity
 	name: string;
 }
 
-export interface Phase extends Entity
-{
-	number: number;
-}
-
 export interface Comuna extends Entity
 {
-	phase: Phase;
-}
-
-export interface Region extends Entity
-{
-	comunas: Comuna[];
+	phase: number;
+	region: number;
 }
 
 export interface BooleanEntity extends Entity

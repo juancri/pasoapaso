@@ -5,7 +5,7 @@ export default async function* desplazarse(factory: EntityFactory): AsyncIterabl
 
 	// In quarantine?
 	const comuna = await factory.requestComuna();
-	if (comuna.phase.number > 1) {
+	if (comuna.phase > 1) {
 		// Not in quarantine
 		yield "Libre desplazamiento";
 		return;

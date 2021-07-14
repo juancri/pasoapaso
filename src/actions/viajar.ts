@@ -5,7 +5,7 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 {
 	// In quarantine?
 	const origin = await factory.requestComuna('Comuna de origen');
-	if (origin.phase.number === 1)
+	if (origin.phase === 1)
 	{
 		// In quarantine
 		// Vaccinated?
