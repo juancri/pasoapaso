@@ -23,7 +23,7 @@ export default async function* irAUnRestaurante(factory: EntityFactory): AsyncIt
 	yield vaccinated ?
 		'Atención en espacios abiertos y cerrados' :
 		'Atención solo en espacios abiertos';
-	const pass = await factory.requestMobilityPass();
+	const pass = vaccinated && await factory.requestMobilityPass();
 	if (pass)
 		yield 'Llevar pase de movilidad';
 	else if (vaccinated)
