@@ -14,13 +14,13 @@ Las acciones actualmente disponibles en este repositorio son:
 |-|-
 |[Desplazarse dentro de la misma comuna](src/actions/desplazarse.ts) |Implementada
 |[Viajar entre comunas](src/actions/viajar.ts) |Implementada
+|[Realizar una reunión presencial](src/actions/realizarUnaReunion.ts) |Implementada
+|[Ir a comer a un restaurante](src/actions/irAUnRestaurante.ts) |Implementada
+|[Ir al gimnasio](src/actions/irAlGimnasio.ts) |Implementada
+|[Organizar un evento con público](src/actions/organizarUnEvento.ts) |Implementada
 |Viajar al extranjero |Planificada
 |Viajar desde el extranjero |Planificada
-|Realizar una reunión presencial |Planificada
-|Ir a comer a un restaurante |Planificada
 |Ir a un casino |Planificada
-|Ir a un gimnasio |Planificada
-|Organizar un evento con público |Planificada
 |Salir a hacer deporte |Planificada
 |Ir a clases |Planificada
 |Abrir mi negocio |Planificada

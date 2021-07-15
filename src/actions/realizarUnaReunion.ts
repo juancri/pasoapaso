@@ -1,5 +1,5 @@
 
-import { EntityFactory } from "../types";
+import { EntityFactory } from '../types';
 
 export default async function* realizarUnaReunion(factory: EntityFactory): AsyncIterable<string>
 {
@@ -7,9 +7,11 @@ export default async function* realizarUnaReunion(factory: EntityFactory): Async
 	if (comuna.phase === 1)
 	{
 		// In quarantine
-		yield "Reuniones prohibidas en cuarentena";
+		yield 'Reuniones prohibidas en cuarentena';
 		return;
 	}
+	if (comuna.phase === 2)
+		yield 'Sólo de lunes a viernes';
 
 	yield 'Un metro de distancia entre personas';
 	const vaccinated = await factory.requestAllVaccinated();
