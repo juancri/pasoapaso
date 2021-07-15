@@ -41,6 +41,6 @@ export default async function* organizarUnEvento(factory: EntityFactory): AsyncI
 	if (!capacity)
 		throw new Error(`Capacity not found for case ${comuna.phase} ${interaction} ${pass}`);
 
-	yield `En espacios abiertos con aforo máximo de ${capacity[3]} personas`;
-	yield `En espacios cerrados con aforo máximo de ${capacity[4]} personas`;
+	yield `En espacios cerrados con aforo máximo de ${capacity[3]} personas`;
+	yield `En espacios abiertos con aforo máximo de ${capacity[4]} personas`;
 }
