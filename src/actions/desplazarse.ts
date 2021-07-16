@@ -3,32 +3,35 @@ import { EntityFactory } from "../types";
 
 export default async function* desplazarse(factory: EntityFactory): AsyncIterable<string> {
 
-	// In quarantine?
 	const comuna = await factory.requestComuna();
-	if (comuna.phase > 1) {
+	if (comuna.phase > 2) {
 		// Not in quarantine
 		yield "Libre desplazamiento";
 		return;
 	}
 
-	// In quarantine
-	// Vaccinated?
 	const vaccinated = await factory.requestVaccinated();
-	if (!vaccinated) {
-		// Not vaccinated
-		yield "Sacar permiso de comisaría virtual";
-		yield "Sugerencia: Vacunarse";
+	if (!vaccinated)
+	{
+		if (comuna.phase === 1)
+		{
+			yield "Sólo con permiso de comisaría virtual";
+		}
+		else
+		{
+			// Phase 2
+			yield "Sin restricciones de lunes a viernes";
+			yield "Sábados, domingos y festivos sólo con permiso de comisaría virtual";
+		}
+
+		yield "Vacúnate!";
 		return;
 	}
 
 	// Vaccinated
-	// Has pass?
 	const hasPass = await factory.requestMobilityPass();
-	if (!hasPass) {
-		// Does not have pass
-		yield "Sacar pase de movilidad para tener libre desplazamiento";
-		return;
-	}
+	if (!hasPass)
+		yield "Obtén tu pase de movilidad";
 
 	// Has pass
 	yield "Libre desplazamiento";
