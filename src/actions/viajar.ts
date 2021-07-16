@@ -68,4 +68,6 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 	if (!hasPass)
 		yield 'Obtener pase de movilidad';
 	yield 'Puede viajar';
+	if (origin.region != destination.region)
+		yield 'Obtener el pasaporte sanitario en www.c19.cl';
 }
