@@ -23,24 +23,22 @@ export default async function* desplazarse(factory: EntityFactory): AsyncIterabl
 	{
 		if (comuna.phase === 1)
 		{
-			yield "Sólo con permiso de comisaría virtual";
+			yield 'Obtén tu permiso en <a href="https://www.comisariavirtual.cl">comisariavirtual.cl</a>';
 		}
 		else
 		{
 			// Phase 2
 			yield "Sin restricciones de lunes a viernes";
-			yield "Sábados, domingos y festivos sólo con permiso de comisaría virtual";
+			yield 'Sábados, domingos y festivos sólo con permiso de <a href="https://www.comisariavirtual.cl">comisaría virtual</a>';
 		}
 
-		yield "Vacúnate!";
+		yield "¡Vacúnate!";
 		return;
 	}
 
 	// Vaccinated
 	const hasPass = await factory.requestMobilityPass();
-	if (!hasPass)
-		yield "Obtén tu pase de movilidad para tener libre desplazamiento";
-
-	// Has pass
-	yield "Libre desplazamiento con pase de movilidad";
+	yield hasPass ?
+		'Puedes desplazarte libremente con tu pase de movilidad' :
+		'Obtén tu pase de movilidad <a href="https://mevacuno.gob.cl/">aquí</a> para desplazarte libremente';
 }

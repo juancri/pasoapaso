@@ -13,20 +13,20 @@ export default async function* irAlGimnasio(factory: EntityFactory): AsyncIterab
 	if (comuna.phase === 4)
 	{
 		// Open
-		yield 'Asistencia permitida en espacios abiertos y cerrados';
+		yield 'Puedes ir al gimnasio y estar en espacios abiertos y cerrados';
 		return;
 	}
 	if (comuna.phase === 2)
 		yield 'Sólo de lunes a viernes';
 	const vaccinated = await factory.requestVaccinated();
 	yield vaccinated ?
-		'Asistencia permitida en espacios abiertos y cerrados' :
-		'Asistencia permitida solo en espacios abiertos';
+		'Puedes ir al gimnasio y estar en espacios abiertos y cerrados' :
+		'Puedes ir al gimnasio y estar sólo en espacios abiertos';
 	const pass = vaccinated && await factory.requestMobilityPass();
 	if (pass)
-		yield 'Llevar pase de movilidad';
+		yield 'Lleva tu pase de movilidad';
 	else if (vaccinated)
-		yield 'Obtener pase de movilidad';
+		yield 'Obtén tu pase de movilidad <a href="https://mevacuno.gob.cl/">aquí</a>';
 	else
-		yield 'Sugerencia: vacunarse';
+		yield '¡Vacúnate!';
 }

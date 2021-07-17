@@ -7,14 +7,14 @@ export default async function* realizarUnaReunion(factory: EntityFactory): Async
 	if (comuna.phase === 1)
 	{
 		// In quarantine
-		yield 'Reuniones prohibidas en cuarentena';
+		yield 'No puedes realizar reuniones en una comuna en cuarentena';
 		return;
 	}
 	if (comuna.phase === 2)
-		yield 'Sólo de lunes a viernes';
+		yield 'Debido a que tu comuna está en transición, puedes realizar reuniones solo de lunes a viernes';
 
-	yield 'Un metro de distancia entre personas';
+	yield 'Los asistentes deben mantener un metro de distancia entre ellos';
 	const vaccinated = await factory.requestAllVaccinated();
 	const capacity = Math.pow(2, comuna.phase - 2) * (vaccinated ? 10 : 5);
-	yield `Aforo máximo de ${capacity} personas`;
+	yield `El aforo máximo es de ${capacity} personas`;
 }

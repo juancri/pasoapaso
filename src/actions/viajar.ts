@@ -11,8 +11,8 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 		const destination = await factory.requestComuna('Comuna de destino');
 		const sameRegion = origin.region === destination.region;
 		yield sameRegion ?
-			'Libre desplazamiento' :
-			'Libre desplazamiento obteniendo el pasaporte sanitario';
+			'Tienes libre desplazamiento en la misma región' :
+			'Puedes desplazarte obteniendo tu pasaporte sanitario en <a href="https://www.c19.cl">c19.cl</a>';
 		return;
 	}
 
@@ -26,9 +26,9 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 		if (!vaccinated)
 		{
 			// Not vaccinated
-			yield 'Prohibida la circulación';
-			yield 'Se requieren permisos de Comisaría Virtual para desplazamiento';
-			yield 'Sugerencia: Vacunarse';
+			yield 'No puedes desplazarte libremente en una comuna en cuarentena si no estás vacunado ni tienes tu pase de movilidad';
+			yield 'Puedes obtener un permiso en <a href="https://comisariavirtual.cl">Comisaría Virtual</a> para desplazarte';
+			yield '¡Vacúnate!';
 			return;
 		}
 
@@ -37,8 +37,8 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 
 		// Has mobility pass?
 		yield hasPass ?
-			'Libre desplazamiento solo dentro de la unidad territorial en cuarentena' :
-			'Obtener pase de movilidad';
+			'Puedes desplazarte libremente solo dentro de la unidad territorial en cuarentena' :
+			'Obtén tu pase de movilidad <a href="https://mevacuno.gob.cl/">aquí</a>';
 		return;
 	}
 
@@ -51,8 +51,9 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 		// TODO: Can I travel to another comuna that is in quarantine?
 		const sameRegion = origin.region === destination.region;
 		yield sameRegion ?
-			'Puede trasladarse entre estas comunas ya que están en la misma región' :
-			'Sin posibilidad de traslado interregional';
+			'Puedes trasladarte entre estas comunas ya que están en la misma región' :
+			'No puedes trasladarte a otra comuna';
+		yield '¡Vacúnate!';
 		return;
 	}
 
@@ -60,14 +61,14 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 	// Destination in quarantine?
 	if (destination.phase === 1) {
 		// Destination is quarantine
-		yield 'No puede trasladarse debido a que la comuna de destino está en cuarentena';
+		yield 'No puedes trasladarte debido a que la comuna de destino está en cuarentena';
 		return;
 	}
 
 	// Destination not in quarantine
 	if (!hasPass)
-		yield 'Obtener pase de movilidad';
+		yield 'Debes obtener tu pase de movilidad <a href="https://mevacuno.gob.cl/">aquí</a>';
 	yield 'Puede viajar';
 	if (origin.region != destination.region)
-		yield 'Obtener el pasaporte sanitario en www.c19.cl';
+		yield 'Debes obtener tu pasaporte sanitario en <a href="https://www.c19.cl">c19.cl</a>';
 }

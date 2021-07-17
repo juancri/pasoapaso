@@ -25,9 +25,9 @@ export default async function* irAUnRestaurante(factory: EntityFactory): AsyncIt
 		'Atención solo en espacios abiertos';
 	const pass = vaccinated && await factory.requestMobilityPass();
 	if (pass)
-		yield 'Llevar pase de movilidad';
+		yield 'Lleva tu pase de movilidad';
 	else if (vaccinated)
-		yield 'Obtener pase de movilidad';
+		yield 'Obtén tu pase de movilidad <a href="https://mevacuno.gob.cl/">aquí</a>';
 	else
-		yield 'Sugerencia: vacunarse';
+		yield '¡Vacúnate!';
 }
