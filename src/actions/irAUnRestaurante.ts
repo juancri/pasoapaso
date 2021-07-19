@@ -8,6 +8,7 @@ export default async function* irAUnRestaurante(factory: EntityFactory): AsyncIt
 	{
 		// In quarantine
 		yield 'Los restaurantes no pueden funcionar en cuarentena';
+		factory.markFailure();
 		return;
 	}
 	if (comuna.phase === 4)
@@ -27,7 +28,7 @@ export default async function* irAUnRestaurante(factory: EntityFactory): AsyncIt
 	if (pass)
 		yield 'Lleva tu pase de movilidad';
 	else if (vaccinated)
-		yield 'Obtén tu pase de movilidad <a href="https://mevacuno.gob.cl/">aquí</a>';
+		yield 'Obtén tu pase de movilidad <a target="_blank" href="https://mevacuno.gob.cl/">aquí</a>';
 	else
 		yield '¡Vacúnate!';
 }

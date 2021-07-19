@@ -1729,3 +1729,4 @@ export const mobilityPass = createBooleanEntityGroup("¿Tienes pase de movilidad
 export const allVaccinated = createBooleanEntityGroup("¿Están todos los asistentes vacunados?");
 export const interaction = createBooleanEntityGroup("¿Habrá interacción con el público?");
 export const openSpace = createBooleanEntityGroup("¿Es un espacio abierto?");
+export const booleanGroup = createBooleanEntityGroup("NO QUESTION");

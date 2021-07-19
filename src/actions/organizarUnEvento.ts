@@ -35,6 +35,7 @@ export default async function* organizarUnEvento(factory: EntityFactory): AsyncI
 	{
 		// In quarantine
 		yield 'No puedes realizar un evento en una comuna en cuarentena';
+		factory.markFailure();
 		return;
 	}
 	const interaction = await factory.requestInteraction();
@@ -42,6 +43,7 @@ export default async function* organizarUnEvento(factory: EntityFactory): AsyncI
 	if (comuna.phase === 2 && interaction && !pass)
 	{
 		yield 'No es posible realizar eventos con interacción con el público sin pase de movilidad en una comuna en transición';
+		factory.markFailure();
 		return;
 	}
 	yield "Todos los asistentes deben portar su pase de movilidad";

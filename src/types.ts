@@ -34,7 +34,9 @@ export interface EntityFactory
 	requestMobilityPass: RequestEntity<boolean>,
 	requestAllVaccinated: RequestEntity<boolean>,
 	requestInteraction: RequestEntity<boolean>,
-	requestOpenSpace: RequestEntity<boolean>
+	requestOpenSpace: RequestEntity<boolean>,
+	requestBoolean: RequestEntity<boolean>,
+	markFailure: () => void,
 }
 
 export type Action = (entityFactory: EntityFactory) => AsyncIterable<string>;

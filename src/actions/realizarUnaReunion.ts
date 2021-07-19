@@ -8,6 +8,7 @@ export default async function* realizarUnaReunion(factory: EntityFactory): Async
 	{
 		// In quarantine
 		yield 'No puedes realizar reuniones en una comuna en cuarentena';
+		factory.markFailure();
 		return;
 	}
 	if (comuna.phase === 2)

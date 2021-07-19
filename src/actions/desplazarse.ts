@@ -14,7 +14,7 @@ export default async function* desplazarse(factory: EntityFactory): AsyncIterabl
 	yield PHASE_MESSAGES.get(comuna.phase) as string;
 	if (comuna.phase > 2) {
 		// Not in quarantine
-		yield "Libre desplazamiento";
+		yield "Debido a que tu comuna está en transición, puedes desplazarte libremente";
 		return;
 	}
 
@@ -23,13 +23,13 @@ export default async function* desplazarse(factory: EntityFactory): AsyncIterabl
 	{
 		if (comuna.phase === 1)
 		{
-			yield 'Obtén tu permiso en <a href="https://www.comisariavirtual.cl">comisariavirtual.cl</a>';
+			yield 'Obtén tu permiso en <a target="_blank" href="https://www.comisariavirtual.cl">comisariavirtual.cl</a>';
 		}
 		else
 		{
 			// Phase 2
 			yield "Sin restricciones de lunes a viernes";
-			yield 'Sábados, domingos y festivos sólo con permiso de <a href="https://www.comisariavirtual.cl">comisaría virtual</a>';
+			yield 'Sábados, domingos y festivos sólo con permiso de <a target="_blank" href="https://www.comisariavirtual.cl">comisaría virtual</a>';
 		}
 
 		yield "¡Vacúnate!";
@@ -40,5 +40,5 @@ export default async function* desplazarse(factory: EntityFactory): AsyncIterabl
 	const hasPass = await factory.requestMobilityPass();
 	yield hasPass ?
 		'Puedes desplazarte libremente con tu pase de movilidad' :
-		'Obtén tu pase de movilidad <a href="https://mevacuno.gob.cl/">aquí</a> para desplazarte libremente';
+		'Obtén tu pase de movilidad <a target="_blank" href="https://mevacuno.gob.cl/">aquí</a> para desplazarte libremente';
 }

@@ -8,6 +8,7 @@ export default async function* irAlGimnasio(factory: EntityFactory): AsyncIterab
 	{
 		// In quarantine
 		yield 'Los gimnasios no pueden operar en cuarentena';
+		factory.markFailure();
 		return;
 	}
 	if (comuna.phase === 4)
@@ -26,7 +27,7 @@ export default async function* irAlGimnasio(factory: EntityFactory): AsyncIterab
 	if (pass)
 		yield 'Lleva tu pase de movilidad';
 	else if (vaccinated)
-		yield 'Obtén tu pase de movilidad <a href="https://mevacuno.gob.cl/">aquí</a>';
+		yield 'Obtén tu pase de movilidad <a target="_blank" href="https://mevacuno.gob.cl/">aquí</a>';
 	else
 		yield '¡Vacúnate!';
 }
