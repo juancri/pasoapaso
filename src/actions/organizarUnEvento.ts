@@ -1,4 +1,5 @@
 
+import { phaseNames } from '../data';
 import { EntityFactory } from '../types';
 
 type Capacity = [phase: number, interaction: boolean, pass: boolean, openSpace: boolean, capacity: number];
@@ -46,7 +47,10 @@ export default async function* organizarUnEvento(factory: EntityFactory): AsyncI
 		factory.markFailure();
 		return;
 	}
-	yield "Todos los asistentes deben portar su pase de movilidad";
+
+	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
+	if (pass)
+		yield "Todos los asistentes deben portar su pase de movilidad";
 
 	const open = await factory.requestOpenSpace();
 	const capacity = CAPACITIES.find(c =>

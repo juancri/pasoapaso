@@ -1,4 +1,5 @@
 
+import { phaseNames } from '../data';
 import { EntityFactory } from '../types';
 
 export default async function* irAlGimnasio(factory: EntityFactory): AsyncIterable<string>
@@ -11,6 +12,8 @@ export default async function* irAlGimnasio(factory: EntityFactory): AsyncIterab
 		factory.markFailure();
 		return;
 	}
+	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
+
 	if (comuna.phase === 4)
 	{
 		// Open

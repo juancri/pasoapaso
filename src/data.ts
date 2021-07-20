@@ -1723,6 +1723,13 @@ export const comunas: EntityGroup<Comuna> = {
 
 };
 
+export const phaseNames = new Map<number, string>([
+	[1, "cuarentena"],
+	[2, "transición"],
+	[3, "preparación"],
+	[4, "apertura"]
+]);
+
 // Boolean entity groups
 
 export const vaccinated = createBooleanEntityGroup("¿Estás vacunado?");

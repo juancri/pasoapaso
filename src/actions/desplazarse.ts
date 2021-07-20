@@ -1,17 +1,11 @@
 
+import { phaseNames } from "../data";
 import { EntityFactory } from "../types";
-
-const PHASE_MESSAGES = new Map<number, string>([
-	[1, "Tu comuna está en cuarentena"],
-	[2, "Tu comuna está en transición"],
-	[3, "Tu comuna está en preparación"],
-	[4, "Tu comuna está en apertura"]
-]);
 
 export default async function* desplazarse(factory: EntityFactory): AsyncIterable<string> {
 
 	const comuna = await factory.requestComuna();
-	yield PHASE_MESSAGES.get(comuna.phase) as string;
+	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
 	if (comuna.phase > 2) {
 		// Not in quarantine
 		yield "Debido a que tu comuna está en transición, puedes desplazarte libremente";

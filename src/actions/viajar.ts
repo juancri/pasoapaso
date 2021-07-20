@@ -1,4 +1,5 @@
 
+import { phaseNames } from "../data";
 import { EntityFactory } from "../types";
 
 export default async function* viajar(factory: EntityFactory): AsyncIterable<string>
@@ -6,6 +7,8 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 	const origin = await factory.requestComuna('Comuna de origen');
 	const destination = await factory.requestComuna('Comuna de destino');
 
+	yield `${origin.name} está en ${phaseNames.get(origin.phase)}`;
+	yield `${destination.name} está en ${phaseNames.get(destination.phase)}`;
 	if (origin.region !== destination.region)
 	{
 		yield "Debido a que las comunas están en regiones diferentes, necesitas un pasaporte sanitario";

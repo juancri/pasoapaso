@@ -1,4 +1,5 @@
 
+import { phaseNames } from '../data';
 import { EntityFactory } from '../types';
 
 export default async function* realizarUnaReunion(factory: EntityFactory): AsyncIterable<string>
@@ -11,8 +12,14 @@ export default async function* realizarUnaReunion(factory: EntityFactory): Async
 		factory.markFailure();
 		return;
 	}
-	if (comuna.phase === 2)
+	else if (comuna.phase === 2)
+	{
 		yield 'Debido a que tu comuna está en transición, puedes realizar reuniones solo de lunes a viernes';
+	}
+	else
+	{
+		yield `${comuna.name} está el ${phaseNames.get(comuna.phase)}`;
+	}
 
 	yield 'Los asistentes deben mantener un metro de distancia entre ellos';
 	const vaccinated = await factory.requestAllVaccinated();
