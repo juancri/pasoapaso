@@ -14,6 +14,7 @@ Las acciones actualmente disponibles en este repositorio son:
 |-|-
 |[Desplazarse dentro de la misma comuna](src/actions/desplazarse.ts) |Implementada
 |[Viajar entre comunas](src/actions/viajar.ts) |Implementada
+|[Organizar un rito religioso](src/actions/realizarUnRitoReligioso.ts) |Implementada
 |[Realizar una reunión presencial](src/actions/realizarUnaReunion.ts) |Implementada
 |[Ir a comer a un restaurante](src/actions/irAUnRestaurante.ts) |Implementada
 |[Ir al gimnasio](src/actions/irAlGimnasio.ts) |Implementada
