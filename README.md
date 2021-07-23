@@ -19,8 +19,8 @@ Las acciones actualmente disponibles en este repositorio son:
 |[Ir a comer a un restaurante](src/actions/irAUnRestaurante.ts) |Implementada
 |[Ir al gimnasio](src/actions/irAlGimnasio.ts) |Implementada
 |[Organizar un evento con público](src/actions/organizarUnEvento.ts) |Implementada
-|Viajar al extranjero |Planificada
-|Viajar desde el extranjero |Planificada
+|[Viajar desde Chile](src/actions/viajarDesdeChile.ts) |Implementada
+|[Viajar a Chile](src/actions/viajarAChile.ts) |Implementada
 |Ir a un casino |Planificada
 |Salir a hacer deporte |Planificada
 |Ir a clases |Planificada
