@@ -1,4 +1,5 @@
 
+import formatNumber from '@/util/formatNumber';
 import { phaseNames } from '../data';
 import { EntityFactory } from '../types';
 
@@ -32,6 +33,7 @@ const CAPACITIES: Capacity[] = [
 export default async function* organizarUnEvento(factory: EntityFactory): AsyncIterable<string>
 {
 	const comuna = await factory.requestComuna();
+	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
 	if (comuna.phase === 1)
 	{
 		// In quarantine
@@ -48,7 +50,6 @@ export default async function* organizarUnEvento(factory: EntityFactory): AsyncI
 		return;
 	}
 
-	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
 	if (pass)
 		yield "Todos los asistentes deben portar su pase de movilidad";
 
@@ -61,5 +62,5 @@ export default async function* organizarUnEvento(factory: EntityFactory): AsyncI
 	if (!capacity)
 		throw new Error(`Capacity not found for case ${comuna.phase} ${interaction} ${pass} ${open}`);
 
-	yield `El aforo máximo es de ${capacity[4]} personas`;
+	yield `El aforo máximo es de ${formatNumber(capacity[4])} personas`;
 }

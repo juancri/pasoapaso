@@ -8,7 +8,7 @@ export default async function* desplazarse(factory: EntityFactory): AsyncIterabl
 	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
 	if (comuna.phase > 2) {
 		// Not in quarantine
-		yield "Debido a que tu comuna está en transición, puedes desplazarte libremente";
+		yield `Debido a que ${comuna.name} está en ${phaseNames.get(comuna.phase)}, puedes desplazarte libremente`;
 		return;
 	}
 

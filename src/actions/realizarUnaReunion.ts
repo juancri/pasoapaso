@@ -5,6 +5,7 @@ import { EntityFactory } from '../types';
 export default async function* realizarUnaReunion(factory: EntityFactory): AsyncIterable<string>
 {
 	const comuna = await factory.requestComuna();
+	yield `${comuna.name} está el ${phaseNames.get(comuna.phase)}`;
 	if (comuna.phase === 1)
 	{
 		// In quarantine
@@ -15,10 +16,6 @@ export default async function* realizarUnaReunion(factory: EntityFactory): Async
 	else if (comuna.phase === 2)
 	{
 		yield 'Debido a que tu comuna está en transición, puedes realizar reuniones solo de lunes a viernes';
-	}
-	else
-	{
-		yield `${comuna.name} está el ${phaseNames.get(comuna.phase)}`;
 	}
 
 	yield 'Los asistentes deben mantener un metro de distancia entre ellos';

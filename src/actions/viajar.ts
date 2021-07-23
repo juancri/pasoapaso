@@ -11,14 +11,14 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 	yield `${destination.name} está en ${phaseNames.get(destination.phase)}`;
 	if (origin.region !== destination.region)
 	{
-		yield "Debido a que las comunas están en regiones diferentes, necesitas un pasaporte sanitario";
+		yield `Debido a que ${origin.name} y ${destination.name} están en regiones diferentes, necesitas un pasaporte sanitario`;
 		yield 'Obtén tu pasaporte sanitario en <a target="_blank" href="https://www.c19.cl">c19.cl</a>';
 
 		if (destination.region === 11)
-			yield 'Para ingresar a la Región de Aysén, necesitas un examen PCR. Revisa los detalles <a target="_blank" href="https://seremi11.redsalud.gob.cl/coronavirus/">aquí</a>.';
+			yield `Debido a que ${destination.name} está en la región de Aysén, necesitas un examen PCR para ingresar. Revisa los detalles <a target="_blank" href="https://seremi11.redsalud.gob.cl/coronavirus/">aquí</a>.`;
 		if (destination.region === 12)
-			yield 'Para ingresar a la Región de Magallanes, necesitas un examen PCR. Revisa los detalles <a target="_blank" href="https://seremisaludmagallanes.cl/barrera/">aquí</a>.';
-		yield 'Recuerde consultar con la <a target="_blank" href="https://www.minsal.cl/secretarias-regionales-ministeriales-de-salud/">SEREMI de Salud</a> de la región de destino si existien disposiciones y requisitos extraordinarios';
+			yield `Debido a que ${destination.name} está en la región de Magallanes, necesitas un examen PCR para ingresar. Revisa los detalles <a target="_blank" href="https://seremisaludmagallanes.cl/barrera/">aquí</a>.`;
+		yield 'Recuerda consultar con la <a target="_blank" href="https://www.minsal.cl/secretarias-regionales-ministeriales-de-salud/">SEREMI de Salud</a> de la región de destino si existien disposiciones y requisitos extraordinarios';
 	}
 
 	if (origin.phase === 1 || destination.phase === 1)

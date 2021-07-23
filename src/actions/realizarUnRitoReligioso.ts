@@ -1,4 +1,5 @@
 
+import formatNumber from "@/util/formatNumber";
 import { phaseNames } from "../data";
 import { EntityFactory } from "../types";
 
@@ -44,21 +45,21 @@ export default async function* realizarUnRitoReligioso(factory: EntityFactory): 
 	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
 	if (comuna.phase === 1)
 	{
-		yield 'Debido a que esta comuna está en cuarentena, sólo se permiten excepciones como ceremonias de funerales, y cultos religiosos organizados por una entidad reconocida por el Estado';
-		yield 'Debido a que esta comuna está en cuarentena, sólo se pueden realizar en lugares establecidos para este fin. No en residencias particulares.';
-		yield 'Debido a que esta comuna está en cuarentena, todos quienes participan deben tener permiso de desplazamiento o pase de movilidad';
+		yield `Debido a que ${comuna.name} está en cuarentena, sólo se permiten excepciones como ceremonias de funerales, y cultos religiosos organizados por una entidad reconocida por el Estado`;
+		yield `Debido a que ${comuna.name} está en cuarentena, sólo se pueden realizar en lugares establecidos para este fin. No en residencias particulares.`;
+		yield `Debido a que ${comuna.name} está en cuarentena, todos quienes participan deben tener permiso de desplazamiento o pase de movilidad`;
 		yield 'Pueden obtener su permiso de desplazamiento en <a target="_blank" href="https://www.comisariavirtual.cl">comisariavirtual.cl</a>';
 		yield 'Pueden obtener su pase de movilidad <a target="_blank" href="https://mevacuno.gob.cl/">aquí</a>';
 	}
 	else
 	{
-		yield 'Se puede realizar de lunes a domingo, incluyendo festivos';
+		yield `Debido a que ${comuna.name} no está en cuarentena, se puede realizar de lunes a domingo, incluyendo festivos`;
 	}
 
 	const open = await factory.requestOpenSpace();
 	if (!open)
 	{
-		yield 'Se deben mantener las normas de ventilación';
+		yield 'Debido a que es un espacio cerrado, se deben mantener las normas de ventilación';
 		yield 'Ventilación natural: mantener una ventana o puerta abierta que permita la entrada de aire, de un tamaño mínimo del 4% de toda la superficie útil';
 		yield 'Ventilación artificial: utilizar sistemas de ventilación artificial que cumplan con la norma (ASHRAE 62.1-2019) considerando 6 renovaciones de aire por hora';
 	}
@@ -79,7 +80,7 @@ export default async function* realizarUnRitoReligioso(factory: EntityFactory): 
 	// Force pass or not vaccinated
 	else if (forcePass || !(await factory.requestAllVaccinated()))
 	{
-		yield `El aforo máximo es de ${maxCapacity} personas`;
+		yield `El aforo máximo es de ${formatNumber(maxCapacity)} personas`;
 		return;
 	}
 
@@ -87,8 +88,8 @@ export default async function* realizarUnRitoReligioso(factory: EntityFactory): 
 	// Medium or large place?
 	const maxCapacity2 = getMaxCapacity(comuna.phase, open, true);
 	const spaceSize2 = maxCapacity2 * maxCapacityPerSpace;
-	const isSmaller2 = await factory.requestBoolean(`¿El lugar tiene menos de ${spaceSize2}m² útiles?`);
-	yield isSmaller2 ?
-		`El aforo máximo es de 1 persona cada ${maxCapacityPerSpace}m² útiles` :
-		`El aforo máximo es de ${maxCapacity2} personas`;
+	const isBig = await factory.requestBoolean(`¿El lugar tiene más de ${spaceSize2}m² útiles?`);
+	yield isBig ?
+		`El aforo máximo es de ${formatNumber(maxCapacity2)} personas` :
+		`El aforo máximo es de 1 persona cada ${maxCapacityPerSpace}m² útiles`;
 }
