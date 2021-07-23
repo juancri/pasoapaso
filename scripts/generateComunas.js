@@ -17,8 +17,22 @@ function getPhase(x)
 // Constants
 const URL = 'https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto74/paso_a_paso.csv';
 const AXIOS_PARAMS = { url: URL, method: 'get', responseType: 'stream' };
-const VALID_ZONAS = ['Urbana', 'Total'];
+const PRIORITY_ZONES = ['Total', 'Urbana'];
 const TODAY = luxon.DateTime.local().toISODate();
+
+function findByZone(group)
+{
+	// Priorities
+	for (const priority of PRIORITY_ZONES)
+	{
+		const found = group.firstOrDefault(x => x.zona === priority);
+		if (found)
+			return found;
+	}
+
+	// Default
+	return group.firstOrDefault();
+}
 
 (async() => {
 	// Download file
@@ -27,22 +41,21 @@ const TODAY = luxon.DateTime.local().toISODate();
 	// Load CSV
 	const data = await csv().fromStream(response.data);
 
-	// Filter
-	const filtered = data.filter(x => VALID_ZONAS.includes(x['zona']));
-
-	// Convert to comuna format
-	const formatted = filtered.map(x => ({
-		name: x.comuna_residencia,
-		phase: getPhase(x),
-		region: parseInt(x.codigo_region)
-	}));
-
-	// Sort
-	const sorted = Enumerable
-		.from(formatted)
+	// group
+	const comunas = Enumerable
+		.from(data)
+		.groupBy(x => x.comuna_residencia)
+		.select(g => {
+			const selected = findByZone(g);
+			return {
+				name: g.key(),
+				phase: getPhase(selected),
+				region: parseInt(selected.codigo_region)
+			};
+		})
 		.orderBy(x => x.name)
 		.toArray();
 
-	console.log(JSON.stringify(sorted, null, ' '));
+	console.log(JSON.stringify(comunas, null, ' '));
 })();
 
