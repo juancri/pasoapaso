@@ -95,6 +95,11 @@ export const comunas: EntityGroup<Comuna> = {
 			"region": 5
 		},
 		{
+			"name": "Cabo de Hornos",
+			"phase": 4,
+			"region": 12
+		},
+		{
 			"name": "Cabrero",
 			"phase": 3,
 			"region": 8
@@ -243,6 +248,11 @@ export const comunas: EntityGroup<Comuna> = {
 			"name": "Chépica",
 			"phase": 3,
 			"region": 6
+		},
+		{
+			"name": "Cisnes",
+			"phase": 2,
+			"region": 11
 		},
 		{
 			"name": "Cobquecura",
@@ -793,6 +803,11 @@ export const comunas: EntityGroup<Comuna> = {
 			"name": "Lota",
 			"phase": 3,
 			"region": 8
+		},
+		{
+			"name": "Lumaco",
+			"phase": 3,
+			"region": 9
 		},
 		{
 			"name": "Machalí",
@@ -1355,6 +1370,11 @@ export const comunas: EntityGroup<Comuna> = {
 			"region": 4
 		},
 		{
+			"name": "Río Ibáñez",
+			"phase": 3,
+			"region": 11
+		},
+		{
 			"name": "Río Negro",
 			"phase": 1,
 			"region": 10
@@ -1621,7 +1641,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Treguaco",
-			"phase": 3,
+			"phase": 4,
 			"region": 16
 		},
 		{
@@ -1720,7 +1740,6 @@ export const comunas: EntityGroup<Comuna> = {
 			"region": 13
 		}
 	]
-
 };
 
 export const phaseNames = new Map<number, string>([
