@@ -1,14 +1,22 @@
 
-import { phaseNames } from "../data";
+import { phaseNames, regiones } from "../data";
 import { EntityFactory } from "../types";
 
 export default async function* desplazarse(factory: EntityFactory): AsyncIterable<string> {
 
 	const comuna = await factory.requestComuna();
-	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
-	if (comuna.phase > 2) {
+	const region = regiones.find(r => r.id === comuna.region);
+	const before = await factory.getBeforeDate(comuna.next?.date, region?.next?.date);
+	const future = !before;
+	const phase = (!before && comuna.next) ? comuna.next.phase : comuna.phase;
+	const curfew = (!before && region?.next) ? region.next.curfew : region?.curfew;
+
+	yield `${comuna.name} ${future ? 'estará' : 'está'} en ${phaseNames.get(phase)}`;
+	yield `${comuna.name} se encuentra en la ${region?.longName} que ${future ? 'tendrá' : 'tiene'} toque de queda desde las ${curfew?.start} hasta las ${curfew?.end}`;
+	if (phase > 2)
+	{
 		// Not in quarantine
-		yield `Debido a que ${comuna.name} está en ${phaseNames.get(comuna.phase)}, puedes desplazarte libremente`;
+		yield `Debido a que ${comuna.name} ${future ? 'estará' : 'está'} en ${phaseNames.get(phase)}, ${future ? 'podrás' : 'puedes'} desplazarte libremente`;
 		return;
 	}
 

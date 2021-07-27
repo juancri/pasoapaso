@@ -10,6 +10,28 @@ export interface Comuna extends Entity
 {
 	phase: number;
 	region: number;
+	next?: {
+		phase: number;
+		date: string;
+	}
+}
+
+export interface Region
+{
+	id: number;
+	name: string;
+	longName: string;
+	curfew: {
+		start: string;
+		end: string;
+	},
+	next?: {
+		date: string;
+		curfew: {
+			start: string;
+			end: string;
+		}
+	}
 }
 
 export interface BooleanEntity extends Entity
@@ -25,10 +47,11 @@ export interface EntityGroup<T extends Entity>
 
 // Request entities and factory
 
-export type RequestEntity<T> = (customName?: string) => Promise<T>;
+export type RequestEntity<T> = (customName?: string, exclude?: string[]) => Promise<T>;
 
 export interface EntityFactory
 {
+	getBeforeDate(...dates: (string | undefined)[]): Promise<boolean>;
 	requestComuna: RequestEntity<Comuna>,
 	requestVaccinated: RequestEntity<boolean>,
 	requestMobilityPass: RequestEntity<boolean>,

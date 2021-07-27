@@ -1,6 +1,6 @@
 
 import formatNumber from '@/util/formatNumber';
-import { phaseNames } from '../data';
+import { phaseNames, regiones } from '../data';
 import { EntityFactory } from '../types';
 
 type Capacity = [phase: number, interaction: boolean, pass: boolean, openSpace: boolean, capacity: number];
@@ -41,6 +41,10 @@ export default async function* organizarUnEvento(factory: EntityFactory): AsyncI
 		factory.markFailure();
 		return;
 	}
+
+	const region = regiones.find(r => r.id === comuna.region);
+	yield `${comuna.name} se encuentra en la ${region?.longName} y, por lo tanto, tiene toque de queda desde las ${region?.curfew.start} hasta las ${region?.curfew.end}`;
+
 	const interaction = await factory.requestInteraction();
 	const pass = await await factory.requestAllVaccinated();
 	if (comuna.phase === 2 && interaction && !pass)

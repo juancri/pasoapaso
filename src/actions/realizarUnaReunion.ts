@@ -1,5 +1,5 @@
 
-import { phaseNames } from '../data';
+import { phaseNames, regiones } from '../data';
 import { EntityFactory } from '../types';
 
 export default async function* realizarUnaReunion(factory: EntityFactory): AsyncIterable<string>
@@ -13,7 +13,10 @@ export default async function* realizarUnaReunion(factory: EntityFactory): Async
 		factory.markFailure();
 		return;
 	}
-	else if (comuna.phase === 2)
+
+	const region = regiones.find(r => r.id === comuna.region);
+	yield `${comuna.name} se encuentra en la ${region?.longName} y, por lo tanto, tiene toque de queda desde las ${region?.curfew.start} hasta las ${region?.curfew.end}`;
+	if (comuna.phase === 2)
 	{
 		yield 'Debido a que tu comuna está en transición, puedes realizar reuniones solo de lunes a viernes';
 	}

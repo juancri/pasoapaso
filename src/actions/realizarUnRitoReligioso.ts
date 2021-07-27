@@ -1,6 +1,6 @@
 
 import formatNumber from "@/util/formatNumber";
-import { phaseNames } from "../data";
+import { phaseNames, regiones } from "../data";
 import { EntityFactory } from "../types";
 
 type MaxCapacity = [phase: number, open: boolean, pass: boolean, capacity: number];
@@ -43,6 +43,10 @@ export default async function* realizarUnRitoReligioso(factory: EntityFactory): 
 {
 	const comuna = await factory.requestComuna();
 	yield `${comuna.name} está en ${phaseNames.get(comuna.phase)}`;
+
+	const region = regiones.find(r => r.id === comuna.region);
+	yield `${comuna.name} se encuentra en la ${region?.longName} y, por lo tanto, tiene toque de queda desde las ${region?.curfew.start} hasta las ${region?.curfew.end}`;
+
 	if (comuna.phase === 1)
 	{
 		yield `Debido a que ${comuna.name} está en cuarentena, sólo se permiten excepciones como ceremonias de funerales, y cultos religiosos organizados por una entidad reconocida por el Estado`;
