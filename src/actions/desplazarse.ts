@@ -6,7 +6,7 @@ export default async function* desplazarse(factory: EntityFactory): AsyncIterabl
 
 	const comuna = await factory.requestComuna();
 	const region = regiones.find(r => r.id === comuna.region);
-	const before = await factory.getBeforeDate(comuna.next?.date, region?.next?.date);
+	const before = await factory.getBeforeDate('desplazarte', comuna.next?.date, region?.next?.date);
 	const future = !before;
 	const phase = (!before && comuna.next) ? comuna.next.phase : comuna.phase;
 	const curfew = (!before && region?.next) ? region.next.curfew : region?.curfew;

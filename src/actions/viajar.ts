@@ -9,6 +9,7 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 	const originRegion = regiones.find(r => r.id === origin.region);
 	const destinationRegion = regiones.find(r => r.id === destination.region);
 	const before = await factory.getBeforeDate(
+		'viajar',
 		origin.next?.date, destination.next?.date,
 		originRegion?.next?.date, destinationRegion?.next?.date);
 	const future = !before;

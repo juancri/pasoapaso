@@ -51,7 +51,7 @@ export type RequestEntity<T> = (customName?: string, exclude?: string[]) => Prom
 
 export interface EntityFactory
 {
-	getBeforeDate(...dates: (string | undefined)[]): Promise<boolean>;
+	getBeforeDate(action: string, ...dates: (string | undefined)[]): Promise<boolean>;
 	requestComuna: RequestEntity<Comuna>,
 	requestVaccinated: RequestEntity<boolean>,
 	requestMobilityPass: RequestEntity<boolean>,
