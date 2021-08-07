@@ -111,7 +111,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Aisén",
 			"phase": 3,
-			"region": 11
+			"region": 11,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Algarrobo",
@@ -170,7 +174,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Arauco",
-			"phase": 2,
+			"phase": 3,
 			"region": 8
 		},
 		{
@@ -190,7 +194,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Cabildo",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
@@ -211,12 +215,20 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Calbuco",
 			"phase": 3,
-			"region": 10
+			"region": 10,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Caldera",
 			"phase": 3,
-			"region": 3
+			"region": 3,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Calera",
@@ -231,7 +243,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Calle Larga",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Camarones",
@@ -240,12 +256,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Camiña",
-			"phase": 3,
+			"phase": 4,
 			"region": 1
 		},
 		{
 			"name": "Canela",
-			"phase": 3,
+			"phase": 4,
 			"region": 4
 		},
 		{
@@ -255,12 +271,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Cartagena",
-			"phase": 2,
+			"phase": 4,
 			"region": 5
 		},
 		{
 			"name": "Casablanca",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
@@ -270,7 +286,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Catemu",
-			"phase": 2,
+			"phase": 3,
 			"region": 5
 		},
 		{
@@ -300,12 +316,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Chanco",
-			"phase": 3,
+			"phase": 4,
 			"region": 7
 		},
 		{
 			"name": "Chañaral",
-			"phase": 2,
+			"phase": 3,
 			"region": 3
 		},
 		{
@@ -315,7 +331,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Chile Chico",
-			"phase": 3,
+			"phase": 4,
 			"region": 11
 		},
 		{
@@ -345,13 +361,17 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Chépica",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
 			"name": "Cisnes",
 			"phase": 3,
-			"region": 11
+			"region": 11,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Cobquecura",
@@ -365,12 +385,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Cochrane",
-			"phase": 3,
+			"phase": 4,
 			"region": 11
 		},
 		{
 			"name": "Codegua",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
@@ -385,7 +405,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Coinco",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
@@ -415,7 +435,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Combarbalá",
-			"phase": 2,
+			"phase": 3,
 			"region": 4
 		},
 		{
@@ -430,7 +450,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Concón",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
@@ -466,7 +486,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Coyhaique",
 			"phase": 3,
-			"region": 11
+			"region": 11,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Cunco",
@@ -475,7 +499,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Curacautín",
-			"phase": 2,
+			"phase": 3,
 			"region": 9
 		},
 		{
@@ -511,11 +535,15 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Dalcahue",
 			"phase": 3,
-			"region": 10
+			"region": 10,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Diego de Almagro",
-			"phase": 2,
+			"phase": 3,
 			"region": 3
 		},
 		{
@@ -545,7 +573,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "El Tabo",
-			"phase": 2,
+			"phase": 3,
 			"region": 5
 		},
 		{
@@ -565,7 +593,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Florida",
-			"phase": 2,
+			"phase": 3,
 			"region": 8
 		},
 		{
@@ -586,22 +614,38 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Frutillar",
 			"phase": 3,
-			"region": 10
+			"region": 10,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Futaleufú",
 			"phase": 3,
-			"region": 10
+			"region": 10,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Futrono",
 			"phase": 1,
-			"region": 14
+			"region": 14,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 2
+			}
 		},
 		{
 			"name": "Galvarino",
 			"phase": 2,
-			"region": 9
+			"region": 9,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 3
+			}
 		},
 		{
 			"name": "General Lagos",
@@ -615,7 +659,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Graneros",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
@@ -635,7 +679,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Hualañé",
-			"phase": 2,
+			"phase": 3,
 			"region": 7
 		},
 		{
@@ -655,7 +699,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Huasco",
-			"phase": 3,
+			"phase": 4,
 			"region": 3
 		},
 		{
@@ -676,7 +720,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Iquique",
 			"phase": 3,
-			"region": 1
+			"region": 1,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Isla de Maipo",
@@ -706,7 +754,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "La Estrella",
 			"phase": 3,
-			"region": 6
+			"region": 6,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "La Florida",
@@ -750,7 +802,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Lago Ranco",
-			"phase": 1,
+			"phase": 2,
 			"region": 14
 		},
 		{
@@ -775,12 +827,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Lanco",
-			"phase": 2,
+			"phase": 3,
 			"region": 14
 		},
 		{
 			"name": "Las Cabras",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
@@ -795,7 +847,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Lebu",
-			"phase": 2,
+			"phase": 3,
 			"region": 8
 		},
 		{
@@ -821,11 +873,15 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Llaillay",
 			"phase": 2,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Llanquihue",
-			"phase": 3,
+			"phase": 2,
 			"region": 10
 		},
 		{
@@ -855,18 +911,22 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Longaví",
-			"phase": 3,
+			"phase": 4,
 			"region": 7
 		},
 		{
 			"name": "Lonquimay",
-			"phase": 1,
+			"phase": 2,
 			"region": 9
 		},
 		{
 			"name": "Los Andes",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Los Lagos",
@@ -875,7 +935,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Los Muermos",
-			"phase": 3,
+			"phase": 4,
 			"region": 10
 		},
 		{
@@ -895,7 +955,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Los Ángeles",
-			"phase": 3,
+			"phase": 4,
 			"region": 8
 		},
 		{
@@ -905,12 +965,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Lumaco",
-			"phase": 3,
+			"phase": 4,
 			"region": 9
 		},
 		{
 			"name": "Machalí",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
@@ -965,7 +1025,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Melipeuco",
-			"phase": 2,
+			"phase": 3,
 			"region": 9
 		},
 		{
@@ -985,12 +1045,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Mostazal",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
 			"name": "Mulchén",
-			"phase": 3,
+			"phase": 4,
 			"region": 8
 		},
 		{
@@ -1016,7 +1076,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Navidad",
 			"phase": 3,
-			"region": 6
+			"region": 6,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Negrete",
@@ -1025,7 +1089,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Ninhue",
-			"phase": 3,
+			"phase": 4,
 			"region": 16
 		},
 		{
@@ -1035,7 +1099,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Nueva Imperial",
-			"phase": 3,
+			"phase": 4,
 			"region": 9
 		},
 		{
@@ -1045,7 +1109,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Olivar",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
@@ -1066,7 +1130,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Ovalle",
 			"phase": 3,
-			"region": 4
+			"region": 4,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Padre Hurtado",
@@ -1095,7 +1163,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Palena",
-			"phase": 3,
+			"phase": 2,
 			"region": 10
 		},
 		{
@@ -1110,7 +1178,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Panquehue",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
@@ -1140,7 +1208,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Pelluhue",
-			"phase": 2,
+			"phase": 3,
 			"region": 7
 		},
 		{
@@ -1170,7 +1238,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Petorca",
-			"phase": 2,
+			"phase": 3,
 			"region": 5
 		},
 		{
@@ -1190,12 +1258,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Pica",
-			"phase": 3,
+			"phase": 4,
 			"region": 1
 		},
 		{
 			"name": "Pichidegua",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
@@ -1230,7 +1298,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Porvenir",
-			"phase": 3,
+			"phase": 4,
 			"region": 12
 		},
 		{
@@ -1251,11 +1319,15 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Puchuncaví",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Pucón",
-			"phase": 2,
+			"phase": 3,
 			"region": 9
 		},
 		{
@@ -1275,12 +1347,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Puerto Octay",
-			"phase": 3,
+			"phase": 4,
 			"region": 10
 		},
 		{
 			"name": "Puerto Varas",
-			"phase": 3,
+			"phase": 4,
 			"region": 10
 		},
 		{
@@ -1290,7 +1362,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Punitaqui",
-			"phase": 3,
+			"phase": 4,
 			"region": 4
 		},
 		{
@@ -1306,17 +1378,25 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Purranque",
 			"phase": 3,
-			"region": 10
+			"region": 10,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Purén",
-			"phase": 2,
+			"phase": 3,
 			"region": 9
 		},
 		{
 			"name": "Putaendo",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Putre",
@@ -1330,12 +1410,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Queilén",
-			"phase": 2,
+			"phase": 3,
 			"region": 10
 		},
 		{
 			"name": "Quellón",
-			"phase": 3,
+			"phase": 4,
 			"region": 10
 		},
 		{
@@ -1345,7 +1425,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Quilaco",
-			"phase": 2,
+			"phase": 3,
 			"region": 8
 		},
 		{
@@ -1370,7 +1450,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Quilpué",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
@@ -1400,12 +1480,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Rancagua",
-			"phase": 3,
+			"phase": 4,
 			"region": 6
 		},
 		{
 			"name": "Rauco",
-			"phase": 3,
+			"phase": 4,
 			"region": 7
 		},
 		{
@@ -1440,8 +1520,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Rinconada",
-			"phase": 2,
-			"region": 5
+			"phase": 3,
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Romeral",
@@ -1460,7 +1544,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Río Claro",
-			"phase": 2,
+			"phase": 3,
 			"region": 7
 		},
 		{
@@ -1475,7 +1559,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Río Negro",
-			"phase": 2,
+			"phase": 3,
 			"region": 10
 		},
 		{
@@ -1485,7 +1569,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Saavedra",
-			"phase": 2,
+			"phase": 3,
 			"region": 9
 		},
 		{
@@ -1521,7 +1605,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "San Esteban",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "San Fabián",
@@ -1531,7 +1619,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "San Felipe",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "San Fernando",
@@ -1545,12 +1637,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "San Ignacio",
-			"phase": 3,
+			"phase": 4,
 			"region": 16
 		},
 		{
 			"name": "San Javier",
-			"phase": 3,
+			"phase": 4,
 			"region": 7
 		},
 		{
@@ -1581,7 +1673,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "San Pablo",
 			"phase": 3,
-			"region": 10
+			"region": 10,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "San Pedro",
@@ -1600,7 +1696,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "San Rafael",
-			"phase": 2,
+			"phase": 3,
 			"region": 7
 		},
 		{
@@ -1630,13 +1726,17 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Santa Juana",
-			"phase": 2,
+			"phase": 3,
 			"region": 8
 		},
 		{
 			"name": "Santa Maria",
 			"phase": 2,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Santiago",
@@ -1646,7 +1746,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Santo Domingo",
 			"phase": 2,
-			"region": 5
+			"region": 5,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Sierra Gorda",
@@ -1671,7 +1775,11 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Taltal",
 			"phase": 3,
-			"region": 2
+			"region": 2,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Temuco",
@@ -1685,12 +1793,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Teodoro Schmidt",
-			"phase": 1,
+			"phase": 2,
 			"region": 9
 		},
 		{
 			"name": "Tierra Amarilla",
-			"phase": 1,
+			"phase": 2,
 			"region": 3
 		},
 		{
@@ -1705,7 +1813,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Tirúa",
-			"phase": 1,
+			"phase": 2,
 			"region": 8
 		},
 		{
@@ -1720,7 +1828,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Tomé",
-			"phase": 3,
+			"phase": 4,
 			"region": 8
 		},
 		{
@@ -1756,11 +1864,15 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Vallenar",
 			"phase": 3,
-			"region": 3
+			"region": 3,
+			"next": {
+				"date": "2021-08-07",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Valparaiso",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
@@ -1775,7 +1887,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Vicuña",
-			"phase": 2,
+			"phase": 3,
 			"region": 4
 		},
 		{
@@ -1790,12 +1902,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Villa Alemana",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
 			"name": "Villarrica",
-			"phase": 2,
+			"phase": 3,
 			"region": 9
 		},
 		{
@@ -1805,7 +1917,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Viña del Mar",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
