@@ -1,5 +1,5 @@
 
-import formatNumber from '@/util/formatNumber';
+import formatNumber from '../util/formatNumber';
 import { phaseNames, regiones } from '../data';
 import { EntityFactory } from '../types';
 

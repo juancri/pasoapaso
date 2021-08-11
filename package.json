@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/juancri/pasoapaso#readme",
   "devDependencies": {
+    "@types/luxon": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "eslint": "^7.30.0"
@@ -25,6 +26,6 @@
     "axios": "^0.21.1",
     "csvtojson": "^2.0.10",
     "linq": "^3.2.3",
-    "luxon": "^2.0.1"
+    "luxon": "^2.0.2"
   }
 }

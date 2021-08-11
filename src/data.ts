@@ -1,7 +1,7 @@
 
 // Dependencies
 
-import { Comuna, EntityGroup, Region } from './types';
+import { Comuna, EntityGroup, Region, VaccinationDate } from './types';
 import { createBooleanEntityGroup } from './util';
 
 // Comunas
@@ -110,12 +110,8 @@ export const comunas: EntityGroup<Comuna> = {
 	entities: [
 		{
 			"name": "Aisén",
-			"phase": 3,
-			"region": 11,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 11
 		},
 		{
 			"name": "Algarrobo",
@@ -129,8 +125,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Alto Biobío",
-			"phase": 2,
-			"region": 8
+			"phase": 3,
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Alto Hospicio",
@@ -180,7 +181,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Arica",
 			"phase": 3,
-			"region": 15
+			"region": 15,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Buin",
@@ -205,7 +211,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Cabrero",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Calama",
@@ -214,26 +225,23 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Calbuco",
-			"phase": 3,
-			"region": 10,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 10
 		},
 		{
 			"name": "Caldera",
-			"phase": 3,
-			"region": 3,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 3
 		},
 		{
 			"name": "Calera",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Calera de Tango",
@@ -242,12 +250,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Calle Larga",
-			"phase": 3,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Camarones",
@@ -266,8 +270,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Carahue",
-			"phase": 2,
-			"region": 9
+			"phase": 3,
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Cartagena",
@@ -327,7 +336,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Chiguayante",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Chile Chico",
@@ -352,12 +366,22 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Cholchol",
 			"phase": 3,
-			"region": 9
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Chonchi",
 			"phase": 3,
-			"region": 10
+			"region": 10,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Chépica",
@@ -366,12 +390,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Cisnes",
-			"phase": 3,
-			"region": 11,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 11
 		},
 		{
 			"name": "Cobquecura",
@@ -411,7 +431,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Colbún",
 			"phase": 2,
-			"region": 7
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Colchane",
@@ -425,8 +450,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Collipulli",
-			"phase": 2,
-			"region": 9
+			"phase": 3,
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Coltauco",
@@ -441,7 +471,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Concepción",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Conchalí",
@@ -455,8 +490,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Constitución",
-			"phase": 2,
-			"region": 7
+			"phase": 3,
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Contulmo",
@@ -481,21 +521,27 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Corral",
 			"phase": 2,
-			"region": 14
-		},
-		{
-			"name": "Coyhaique",
-			"phase": 3,
-			"region": 11,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
+			"region": 14,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
 			}
 		},
 		{
+			"name": "Coyhaique",
+			"phase": 4,
+			"region": 11
+		},
+		{
 			"name": "Cunco",
-			"phase": 3,
-			"region": 9
+			"phase": 4,
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Curacautín",
@@ -534,12 +580,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Dalcahue",
-			"phase": 3,
-			"region": 10,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 10
 		},
 		{
 			"name": "Diego de Almagro",
@@ -604,7 +646,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Freirina",
 			"phase": 3,
-			"region": 3
+			"region": 3,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Fresia",
@@ -613,39 +660,23 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Frutillar",
-			"phase": 3,
-			"region": 10,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 10
 		},
 		{
 			"name": "Futaleufú",
-			"phase": 3,
-			"region": 10,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 10
 		},
 		{
 			"name": "Futrono",
-			"phase": 1,
-			"region": 14,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 2
-			}
+			"phase": 2,
+			"region": 14
 		},
 		{
 			"name": "Galvarino",
-			"phase": 2,
-			"region": 9,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 3
-			}
+			"phase": 3,
+			"region": 9
 		},
 		{
 			"name": "General Lagos",
@@ -654,8 +685,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Gorbea",
-			"phase": 2,
-			"region": 9
+			"phase": 3,
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Graneros",
@@ -685,17 +721,32 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Hualpén",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Hualqui",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Huara",
 			"phase": 2,
-			"region": 1
+			"region": 1,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Huasco",
@@ -719,12 +770,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Iquique",
-			"phase": 3,
-			"region": 1,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 1
 		},
 		{
 			"name": "Isla de Maipo",
@@ -749,16 +796,17 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "La Cruz",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "La Estrella",
-			"phase": 3,
-			"region": 6,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 6
 		},
 		{
 			"name": "La Florida",
@@ -773,7 +821,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "La Higuera",
 			"phase": 3,
-			"region": 4
+			"region": 4,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "La Ligua",
@@ -818,7 +871,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Laja",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Lampa",
@@ -843,7 +901,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Lautaro",
 			"phase": 3,
-			"region": 9
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Lebu",
@@ -863,21 +926,27 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Linares",
 			"phase": 3,
-			"region": 7
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Litueche",
 			"phase": 3,
-			"region": 6
+			"region": 6,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Llaillay",
-			"phase": 2,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 3
-			}
+			"phase": 3,
+			"region": 5
 		},
 		{
 			"name": "Llanquihue",
@@ -907,7 +976,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Loncoche",
 			"phase": 2,
-			"region": 9
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Longaví",
@@ -921,17 +995,18 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Los Andes",
-			"phase": 3,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Los Lagos",
 			"phase": 1,
-			"region": 14
+			"region": 14,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Los Muermos",
@@ -1075,12 +1150,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Navidad",
-			"phase": 3,
-			"region": 6,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 6
 		},
 		{
 			"name": "Negrete",
@@ -1095,7 +1166,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Nogales",
 			"phase": 3,
-			"region": 5
+			"region": 5,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Nueva Imperial",
@@ -1125,16 +1201,17 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Osorno",
 			"phase": 3,
-			"region": 10
+			"region": 10,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Ovalle",
-			"phase": 3,
-			"region": 4,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 4
 		},
 		{
 			"name": "Padre Hurtado",
@@ -1154,7 +1231,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Paillaco",
 			"phase": 1,
-			"region": 14
+			"region": 14,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Paine",
@@ -1189,12 +1271,22 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Paredones",
 			"phase": 4,
-			"region": 6
+			"region": 6,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Parral",
 			"phase": 3,
-			"region": 7
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Pedro Aguirre Cerda",
@@ -1203,8 +1295,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Pelarco",
-			"phase": 3,
-			"region": 7
+			"phase": 4,
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Pelluhue",
@@ -1224,7 +1321,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Penco",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Peralillo",
@@ -1234,7 +1336,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Perquenco",
 			"phase": 3,
-			"region": 9
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Petorca",
@@ -1269,7 +1376,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Pichilemu",
 			"phase": 3,
-			"region": 6
+			"region": 6,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Pinto",
@@ -1284,7 +1396,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Pitrufquén",
 			"phase": 3,
-			"region": 9
+			"region": 9,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Placilla",
@@ -1318,12 +1435,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Puchuncaví",
-			"phase": 3,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Pucón",
@@ -1372,17 +1485,18 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Puqueldón",
-			"phase": 2,
-			"region": 10
+			"phase": 3,
+			"region": 10,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 2
+			}
 		},
 		{
 			"name": "Purranque",
-			"phase": 3,
-			"region": 10,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 10
 		},
 		{
 			"name": "Purén",
@@ -1391,12 +1505,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Putaendo",
-			"phase": 3,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Putre",
@@ -1405,8 +1515,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Puyehue",
-			"phase": 2,
-			"region": 10
+			"phase": 3,
+			"region": 10,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Queilén",
@@ -1436,7 +1551,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Quilleco",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Quillota",
@@ -1515,17 +1635,18 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Retiro",
-			"phase": 2,
-			"region": 7
+			"phase": 3,
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Rinconada",
-			"phase": 3,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Romeral",
@@ -1604,26 +1725,23 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "San Esteban",
-			"phase": 3,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "San Fabián",
 			"phase": 3,
-			"region": 16
+			"region": 16,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "San Felipe",
-			"phase": 3,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "San Fernando",
@@ -1668,16 +1786,17 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "San Nicolás",
 			"phase": 3,
-			"region": 16
+			"region": 16,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "San Pablo",
-			"phase": 3,
-			"region": 10,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 10
 		},
 		{
 			"name": "San Pedro",
@@ -1687,12 +1806,22 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "San Pedro de Atacama",
 			"phase": 2,
-			"region": 2
+			"region": 2,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
+			}
 		},
 		{
 			"name": "San Pedro de la Paz",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "San Rafael",
@@ -1706,8 +1835,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "San Rosendo",
-			"phase": 2,
-			"region": 8
+			"phase": 3,
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "San Vicente",
@@ -1731,12 +1865,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Santa Maria",
-			"phase": 2,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Santiago",
@@ -1745,12 +1875,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Santo Domingo",
-			"phase": 2,
-			"region": 5,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 3
-			}
+			"phase": 3,
+			"region": 5
 		},
 		{
 			"name": "Sierra Gorda",
@@ -1770,16 +1896,17 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Talcahuano",
 			"phase": 3,
-			"region": 8
+			"region": 8,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Taltal",
-			"phase": 3,
-			"region": 2,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 2
 		},
 		{
 			"name": "Temuco",
@@ -1788,8 +1915,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Teno",
-			"phase": 2,
-			"region": 7
+			"phase": 3,
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Teodoro Schmidt",
@@ -1799,7 +1931,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Tierra Amarilla",
 			"phase": 2,
-			"region": 3
+			"region": 3,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Tiltil",
@@ -1863,12 +2000,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Vallenar",
-			"phase": 3,
-			"region": 3,
-			"next": {
-				"date": "2021-08-07",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 3
 		},
 		{
 			"name": "Valparaiso",
@@ -1898,7 +2031,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Villa Alegre",
 			"phase": 3,
-			"region": 7
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Villa Alemana",
@@ -1923,7 +2061,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Yerbas Buenas",
 			"phase": 3,
-			"region": 7
+			"region": 7,
+			"next":
+			{
+				"date": "2021-08-11",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Yumbel",
@@ -1959,6 +2102,129 @@ export const phaseNames = new Map<number, string>([
 	[3, "preparación"],
 	[4, "apertura"]
 ]);
+
+export const VACCINE_SINOVAC = 'Sinovac';
+export const VACCINE_PFIZER = 'Pfizer';
+export const VACCINE_ASTRAZENECA = 'AstraZeneca';
+export const VACCINE_CANSINO = 'CanSino';
+
+export const vaccineKinds = [
+	VACCINE_SINOVAC,
+	VACCINE_PFIZER,
+	VACCINE_ASTRAZENECA,
+	VACCINE_CANSINO
+];
+
+export const vaccinationSchedule: VaccinationDate[] = [
+	// Martes 10 de agosto
+	{
+		name: 'Segunda dosis a población vacunada con Sinovac',
+		date: '2021-08-10',
+		dose: 2,
+		kind: 'Sinovac',
+		daysAfterPreviousDose: 28
+	},
+	{
+		name: 'Primera dosis rezagados desde los 18 años con Sinovac',
+		date: '2021-08-10',
+		dose: 1,
+		minAge: 18
+	},
+	// Miércoles 11 de agosto
+	{
+		name: 'Segunda dosis a población vacunada entre el 5 y 11 de julio',
+		date: '2021-08-11',
+		dose: 2,
+		previousDoseMinDate: '2021-07-05',
+		previousDoseMaxDate: '2021-07-11'
+	},
+	{
+		name: 'Dosis de resfuerzo para personas de 86 o más años',
+		date: '2021-08-11',
+		dose: 3,
+		minAge: 86,
+		kind: 'Sinovac',
+		previousDoseMinDate: '2021-03-01',
+		previousDoseMaxDate: '2021-03-14'
+	},
+	// Jueves 12 de agosto
+	{
+		name: 'Dosis de resfuerzo para personas entre 82 y 85 años',
+		date: '2021-08-12',
+		dose: 3,
+		minAge: 82,
+		maxAge: 85,
+		kind: 'Sinovac',
+		previousDoseMinDate: '2021-03-01',
+		previousDoseMaxDate: '2021-03-14'
+	},
+	// Viernes 13 de agosto
+	{
+		name: 'Dosis de resfuerzo para personas entre 79 y 81 años',
+		date: '2021-08-13',
+		dose: 3,
+		minAge: 79,
+		maxAge: 81,
+		kind: 'Sinovac',
+		previousDoseMinDate: '2021-03-01',
+		previousDoseMaxDate: '2021-03-14'
+	},
+	// Lunes 16 de agosto
+	{
+		name: 'Dosis de resfuerzo para personas entre 75 y 78 años',
+		date: '2021-08-16',
+		dose: 3,
+		minAge: 75,
+		maxAge: 78,
+		kind: 'Sinovac',
+		previousDoseMinDate: '2021-03-01',
+		previousDoseMaxDate: '2021-03-14'
+	},
+	// Martes 17 de agosto
+	{
+		name: 'Dosis de resfuerzo para personas entre 72 y 74 años',
+		date: '2021-08-17',
+		dose: 3,
+		minAge: 72,
+		maxAge: 74,
+		kind: 'Sinovac',
+		previousDoseMinDate: '2021-03-01',
+		previousDoseMaxDate: '2021-03-14'
+	},
+	// Miércoles 18 de agosto
+	{
+		name: 'Dosis de resfuerzo para personas entre 70 y 71 años',
+		date: '2021-08-18',
+		dose: 3,
+		minAge: 70,
+		maxAge: 71,
+		kind: 'Sinovac',
+		previousDoseMinDate: '2021-03-01',
+		previousDoseMaxDate: '2021-03-14'
+	},
+	// Jueves 19 de agosto
+	{
+		name: 'Dosis de resfuerzo para personas entre 64 y 69 años',
+		date: '2021-08-19',
+		dose: 3,
+		minAge: 64,
+		maxAge: 69,
+		kind: 'Sinovac',
+		previousDoseMinDate: '2021-03-01',
+		previousDoseMaxDate: '2021-03-14'
+	},
+	// Viernes 20 de agosto
+	{
+		name: 'Dosis de resfuerzo para personas entre 55 y 63 años',
+		date: '2021-08-20',
+		dose: 3,
+		minAge: 55,
+		maxAge: 63,
+		kind: 'Sinovac',
+		previousDoseMinDate: '2021-03-01',
+		previousDoseMaxDate: '2021-03-14'
+	},
+];
 
 // Boolean entity groups
 

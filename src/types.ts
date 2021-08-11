@@ -45,9 +45,47 @@ export interface EntityGroup<T extends Entity>
 	entities: T[]
 }
 
+export interface VaccineDose
+{
+	date: Date,
+	kind: string
+}
+
+export interface VaccinationStatus
+{
+	dateOfBirth: Date,
+	first?: VaccineDose;
+	second?: VaccineDose;
+	third?: VaccineDose;
+}
+
+export interface DateSelectorConfig
+{
+	from?: Date;
+	to?: Date;
+	default?: Date;
+}
+
+export interface VaccinationDate
+{
+	// Local date in ISO format
+	date: string;
+	name: string;
+	dose: 1 | 2 | 3;
+	minAge?: number;
+	maxAge?: number;
+	kind?: string;
+	daysAfterPreviousDose?: number;
+	previousDoseMinDate?: string;
+	previousDoseMaxDate?: string;
+	// Extra checks
+	check?: (status: VaccinationStatus) => boolean;
+}
+
 // Request entities and factory
 
 export type RequestEntity<T> = (customName?: string, exclude?: string[]) => Promise<T>;
+export type Request<T> = (question: string) => Promise<T>;
 
 export interface EntityFactory
 {
@@ -59,6 +97,8 @@ export interface EntityFactory
 	requestInteraction: RequestEntity<boolean>,
 	requestOpenSpace: RequestEntity<boolean>,
 	requestBoolean: RequestEntity<boolean>,
+	requestVaccinationDose: (question: string, kinds: string[], config?: DateSelectorConfig) => Promise<VaccineDose>,
+	requestDate: (question: string, config?: DateSelectorConfig) => Promise<Date>,
 	markFailure: () => void,
 }
 
