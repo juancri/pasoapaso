@@ -99,6 +99,7 @@ export interface EntityFactory
 	requestBoolean: RequestEntity<boolean>,
 	requestVaccinationDose: (question: string, kinds: string[], config?: DateSelectorConfig) => Promise<VaccineDose>,
 	requestDate: (question: string, config?: DateSelectorConfig) => Promise<Date>,
+	requestSubscribe: <T extends unknown>(config: T) => Promise<boolean>,
 	markFailure: () => void,
 }
 

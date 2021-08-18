@@ -14,40 +14,51 @@ export default async function* viajarAChile(factory: EntityFactory): AsyncIterab
 	}
 	else
 	{
-		const hasKids = await factory.requestBoolean('¿Hay niños en el grupo de viaje?');
+		const hasKids = await factory.requestBoolean('¿Hay menores de edad en el grupo de viaje?');
+		const hasAdults = !hasKids || await factory.requestBoolean('¿Hay adultos en el grupo de viaje?');
 		const hasSmallKids = hasKids && await factory.requestBoolean('¿Hay algún menor de 14 años en el grupo de viaje?');
-		const vaccinatedQuestion = hasKids ?
+		const vaccinatedInChileQuestion = hasKids && hasAdults ?
 			'¿Están todos los adultos del grupo vacunados en Chile?' :
 			'¿Están todos los miembros del grupo vacunados en Chile?';
-		const vaccinated = hasSmallKids || await factory.requestAllVaccinated(vaccinatedQuestion);
-		const hotelDeTransito = (!vaccinated && !hasKids) || (!hasSmallKids && await factory.requestBoolean('¿Desean quedarse en un hotel de tránsito?'));
+		const vaccinatedInChile = hasSmallKids || await factory.requestAllVaccinated(vaccinatedInChileQuestion);
+		const vaccinatedInOtherCountryQuestion = hasKids && hasAdults ?
+			'¿Están todos los adultos del grupo vacunados en otro país?' :
+			'¿Están todos los miembros del grupo vacunados en otro país?';
+		const vaccinatedInOtherCountry = !vaccinatedInChile && await factory.requestBoolean(vaccinatedInOtherCountryQuestion);
+		const temporaryValidation = vaccinatedInOtherCountry && await factory.requestBoolean('¿Tienes tu comprobante de validación temporal de vacunación?');
+		const hotelDeTransitoObligatorio = !vaccinatedInChile && !temporaryValidation && !hasSmallKids;
+		const hotelDeTransito = hotelDeTransitoObligatorio || (hasAdults && await factory.requestBoolean('¿Desean quedarse en un hotel de tránsito?'));
 
 		yield 'El grupo debe obtener su pasaporte sanitario en <a href="https://www.c19.cl" target="_blank">c19.cl</a>';
 		yield hasSmallKids ?
 			'Todos los miembros del grupo de 2 años o más deben incluir un PCR con resultado negativo realizado máximo 72 horas antes de la hora de embarque' :
 			'Todos los miembros del grupo deben incluir un PCR con resultado negativo realizado máximo 72 horas antes de la hora de embarque';
-		if (!vaccinated && !hasKids)
-			yield 'Debido a que no todos los miembros del grupo están vacunados en Chile, deberán realizar el aislamiento estricto obligatorio de 10 días en un hotel de tránsito';
-		else if (!vaccinated && hasKids && !hasSmallKids)
-			yield 'Debido a que no todos los adultos del grupo están vacunados en Chile, deberán realizar el aislamiento estricto obligatorio de 10 días en un hotel de tránsito';
-		else if (hasSmallKids)
+		if (hotelDeTransitoObligatorio)
+			yield hasKids ?
+				'Debido a que no todos los adultos del grupo están vacunados en Chile ni tienen una validación temporal de vacunación, deberán realizar el aislamiento estricto obligatorio de 10 días en un hotel de tránsito' :
+				'Debido a que no todos los miembros del grupo están vacunados en Chile ni tienen una validación temporal de vacunación, deberán realizar el aislamiento estricto obligatorio de 10 días en un hotel de tránsito';
+		if (hasSmallKids)
 			yield 'Debido a que el grupo incluye a niños menores de 14 años, deberán realizar el aislamiento estricto obligatorio de 10 días en un domicilio particular declarado';
+		yield 'Se entenderá que los 10 días se cumplen una vez transcurridas 240 horas desde el control de la aduana sanitaria en el paso fronterizo por el cual se hizo ingreso al país';
 		if (!hotelDeTransito)
 			yield 'Todas las personas dentro de la misma declaración deberán realizar el aislamiento estricto obligatorio de 10 días en el mismo lugar';
 		yield hotelDeTransito ?
 			'Es importante que verifiques que todos los datos personales están ingresados correctamente' :
 			'Es importante que verifiques que todos los datos personales y el domicilio declarado están ingresados correctamente';
 		yield 'Recuerda que el formulario para obtener el pasaporte sanitario es una declaración jurada y, por lo tanto, ingresar información falsa es un delito';
-
 		if (!hotelDeTransito)
 		{
 			yield 'Deberás declarar la dirección donde realizarán el aislamiento estricto obligatorio de 10 días';
 			yield 'En la misma declaración, debes incluir a todos los cohabitantes de la dirección declarada';
 			yield 'Todos quienes realicen el aislamiento estricto obligatorio, incluidos los cohabitantes, tendrán su pase de movilidad suspendido por 10 días';
 			yield 'En caso de que llegues a la casa de un amigo o familiar, todos quienes estén en la casa serán incluidos en el aislamiento estricto obligatorio';
-			yield 'Tienen un máximo de 5 horas para llegar a la dirección del aislamiento desde el punto de entrada a Chile';
 			yield 'Deberán utilizar un transporte terrestre particular o contratado privado. No pueden utilizar ningún medio de transporte público incluído vuelos comerciales.';
-			yield 'Durante el trayecto, no está permitido que se detengan. Te recomendamos comprar lo necesario para el viaje en el aeropuerto o antes de entrar a Chile.';
+			if (!hasAdults)
+				yield 'Debido a que el grupo no incluye adultos, los menores de edad podrán trasladarse a su destino final ya sea en transporte público o privado, posterior a un resultado negativo para un test para SARS-CoV-2 efectuado en Chile';
+			yield 'Se deberá utilizar mascarilla en todo momento durante el traslado';
+			yield 'Está prohibido pernoctar o interactuar con otras personas durante el traslado';
+			yield 'En caso de que el lugar de aislamiento quede a más de dos horas del punto de ingreso al país, el conductor del medio de transporte deberá aislarse por los mismos 10 días';
+			yield 'Una vez arribado al lugar de aislamiento, deberás dar aviso de tu llegada y ubicación a la autoridad sanitaria en una plataforma electrónica dispuesta para estos efectos';
 		}
 
 		yield 'La entrada a Chile está permitida a través del Aeropuerto Comodoro Arturo Merino Benítez de Santiago y pasos terrestres habilitados. Puedes revisar el estado de los pasos terrestres entre Chile y Argentina <a href="https://www.argentina.gob.ar/seguridad/pasosinternacionales" target="_blank">aquí</a>.';
@@ -55,7 +66,7 @@ export default async function* viajarAChile(factory: EntityFactory): AsyncIterab
 			'Se le realizará un test PCR o de antígenos a todos los miembros del grupo de 2 años o más al ingresar a Chile' :
 			'Se les realizará un test PCR o de antígenos al ingresar a Chile';
 		yield 'En caso de que el test a la entrada sea positivo, todos los miembros del grupo serán trasladado a una residencia sanitaria';
-		if (vaccinated && hotelDeTransito)
+		if (vaccinatedInChile && hotelDeTransito)
 			yield 'Todos quienes realicen el aislamiento estricto obligatorio tendrán su pase de movilidad suspendido por 10 días';
 		yield hotelDeTransito ?
 			'En caso de que se detecte que un miembro del grupo está contagiado durante el aislamiento estricto obligatorio, todos el grupo será trasladado a una residencia sanitaria' :
@@ -63,6 +74,7 @@ export default async function* viajarAChile(factory: EntityFactory): AsyncIterab
 		yield 'Te recomendamos utilizar una mascarilla certificada durante el viaje. El uso de mascarilla es obligatorio en el avión.';
 		yield 'Recuerda que la salud de todos es tu responsabilidad';
 		yield 'Si no cumples estas medidas, te expones a sumarios sanitarios y multas';
+		yield 'Durante el traslado a tu lugar de aislamiento, deberás cumplir con las medidas sanitarias pertinentes y utilizar mascarilla en todo momento';
 	}
 	yield 'Debido a los procedimientos especiales para prevenir el ingreso de nuevas variantes al país, el tiempo de espera en el aeropuerto es mayor a lo normal';
 }

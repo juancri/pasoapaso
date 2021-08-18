@@ -1,10 +1,11 @@
 
 import { DateTime } from 'luxon';
 import { vaccinationSchedule, vaccineKinds } from '../data';
-import { DateSelectorConfig, EntityFactory, VaccinationDate, VaccinationStatus } from '../types';
+import { DateSelectorConfig, EntityFactory, VaccinationDate, VaccinationStatus, VaccineDose } from '../types';
 
+const BIRTHDAY_DATE_FROM = DateTime.fromISO('1900-01-01');
 const BIRTHDAY_DATE_CONFIG: DateSelectorConfig = {
-	from: DateTime.local().plus({ years: -150 }).toJSDate(),
+	from: BIRTHDAY_DATE_FROM.toJSDate(),
 	to: new Date(),
 	default: DateTime.local().plus({ years: -20 }).toJSDate()
 };
@@ -17,6 +18,60 @@ const NICE_DATE_FORMAT = `cccc d 'de' LLLL`;
 const MIN_DAYS_BETWEEN_DOSES = 14;
 const DEFAULT_DAYS_BETWEEN_DOSES = 28;
 const TODAY = DateTime.local();
+
+interface VaccineDoseSubscription
+{
+	date: string;
+	kind: string;
+}
+
+interface VaccineSubscriptionBase
+{
+	dateOfBirth: string;
+	first?: VaccineDoseSubscription;
+	second?: VaccineDoseSubscription;
+	third?: VaccineDoseSubscription;
+}
+
+function jsDateToISO(date: Date): string
+{
+	return DateTime.fromJSDate(date).toISODate();
+}
+
+function vaccineDoseToVaccineDoseSubscription(dose?: VaccineDose): VaccineDoseSubscription | undefined
+{
+	if (!dose)
+		return undefined;
+	return {
+		date: jsDateToISO(dose.date),
+		kind: dose.kind
+	};
+}
+
+function vaccinationStatusToVaccineSubscriptionBase(status: VaccinationStatus): VaccineSubscriptionBase
+{
+	return {
+		dateOfBirth: jsDateToISO(status.dateOfBirth),
+		first: vaccineDoseToVaccineDoseSubscription(status.first),
+		second: vaccineDoseToVaccineDoseSubscription(status.second),
+		third: vaccineDoseToVaccineDoseSubscription(status.third)
+	};
+}
+
+function getNextDoseConfig(previous: VaccineDose): DateSelectorConfig
+{
+	return {
+		...FIRST_DOSE_DATE_CONFIG,
+		from: DateTime
+			.fromJSDate(previous.date)
+			.plus({ days: MIN_DAYS_BETWEEN_DOSES })
+			.toJSDate(),
+		default: DateTime
+			.fromJSDate(previous.date)
+			.plus({ days: DEFAULT_DAYS_BETWEEN_DOSES })
+			.toJSDate()
+	};
+}
 
 async function getVaccinationStatus(factory: EntityFactory): Promise<VaccinationStatus>
 {
@@ -35,19 +90,18 @@ async function getVaccinationStatus(factory: EntityFactory): Promise<Vaccination
 	const hasSecond = await factory.requestBoolean('¿Ya recibiste la segunda dosis?');
 	if (!hasSecond)
 		return { dateOfBirth, first };
-	const secondDoseDateConfig: DateSelectorConfig = {
-		...FIRST_DOSE_DATE_CONFIG,
-		from: DateTime
-			.fromJSDate(first.date)
-			.plus({ days: MIN_DAYS_BETWEEN_DOSES })
-			.toJSDate(),
-		default: DateTime
-			.fromJSDate(first.date)
-			.plus({ days: DEFAULT_DAYS_BETWEEN_DOSES })
-			.toJSDate()
-	};
+	const secondDoseDateConfig = getNextDoseConfig(first);
 	const second = await factory.requestVaccinationDose('segunda dosis', [first.kind], secondDoseDateConfig);
-	return { dateOfBirth, first, second };
+	if (TODAY.diff(DateTime.fromJSDate(second.date)).as('days') < MIN_DAYS_BETWEEN_DOSES)
+		return { dateOfBirth, first, second };
+
+	const hasThird = await factory.requestBoolean('¿Ya recibiste una dosis de refuerzo?');
+	if (!hasThird)
+		return { dateOfBirth, first, second };
+	const thirdDoseDateConfig = getNextDoseConfig(second);
+	// TODO: Check reinforcement vaccine kinds
+	const third = await factory.requestVaccinationDose('dosis de refuerzo', vaccineKinds, thirdDoseDateConfig);
+	return { dateOfBirth, first, second, third };
 }
 
 function isMatch(status: VaccinationStatus, date: VaccinationDate): boolean
@@ -136,5 +190,14 @@ export default async function* vacunarme(factory: EntityFactory): AsyncIterable<
 	for (const date of matches)
 		yield `Puedes vacunarte el ${isoToNice(date.date)}: ${date.name}`;
 	if (!matches.length)
-		yield 'No hay ninguna fecha programada que coincida con tus datos';
+	{
+		const subscribe = await factory.requestBoolean('¿Quieres que te avisemos cuando puedas recibir una dosis?');
+		if (subscribe)
+		{
+			const subscriptionResult = await factory.requestSubscribe<VaccineSubscriptionBase>(vaccinationStatusToVaccineSubscriptionBase(status));
+			if (subscriptionResult)
+				yield 'Te avisaremos cuando puedas recibir una nueva dosis';
+		}
+		yield 'Por el momento, no hay ninguna fecha programada que coincida con tus datos';
+	}
 }

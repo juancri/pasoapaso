@@ -38,8 +38,8 @@ export default async function* viajar(factory: EntityFactory): AsyncIterable<str
 	}
 	else
 	{
-		yield 'Debido a que no tienes un documento digital con firma electrónica avanzada o un código QR que acredite que la información es emitida por un organismo oficial de gobierno, deberás adjuntar tu pasaporte u otra forma de acreditar que te encontrabas en el país donde recibiste la vacuna en la fecha indicada por el certificado de vacunación de ese país';
-		yield 'Por la misma razón, deberás adjuntar un resultado de examen realizado en un laboratorio autorizado en territorio chileno que certifique que tienes anticuerpos IgM/IgG positivos contra coronavirus, realizado al menos 14 días después de haber completado el proceso de vacunación';
+		yield 'Debido a que no tienes un documento digital con firma electrónica avanzada o un código QR que acredite que la información es emitida por un organismo oficial de gobierno, deberás adjuntar tu pasaporte u otra forma de acreditar que te encontrabas en el país donde recibiste la vacuna en la fecha indicada por el certificado de vacunación de ese país.<br/>Una vez revisados tus documentos, se emitirá una validación temporal de vacunación. Esta validación te permitirá realizar el aislamiento estricto obligatorio de 10 días en un domicilio particular al ingresar a Chile.';
+		yield 'Por la misma razón, deberás adjuntar el resultado de un examen realizado en un laboratorio autorizado en territorio chileno que certifique que tienes anticuerpos IgM/IgG positivos contra coronavirus, realizado al menos 14 días después de haber completado el proceso de vacunación. Una vez presentado el resultado de este examen, se emitirá tu pase de movilidad definitivo.';
 
 		const language = await factory.requestBoolean('¿El documento físico que acredita tu vacunación está escrito en inglés o español?');
 		if (!language)
