@@ -82,6 +82,13 @@ export interface VaccinationDate
 	check?: (status: VaccinationStatus) => boolean;
 }
 
+export interface LocalVotacion
+{
+	comuna: string;
+	circunscripcion: string;
+	direccion: string;
+}
+
 // Request entities and factory
 
 export type RequestEntity<T> = (customName?: string, exclude?: string[]) => Promise<T>;
@@ -100,6 +107,7 @@ export interface EntityFactory
 	requestVaccinationDose: (question: string, kinds: string[], config?: DateSelectorConfig) => Promise<VaccineDose>,
 	requestDate: (question: string, config?: DateSelectorConfig) => Promise<Date>,
 	requestSubscribe: <T extends unknown>(config: T) => Promise<boolean>,
+	requestLocalVotacion: () => Promise<LocalVotacion>,
 	markFailure: () => void,
 }
 
