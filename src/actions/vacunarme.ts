@@ -185,19 +185,26 @@ function isoToNice(date: string): string
 
 export default async function* vacunarme(factory: EntityFactory): AsyncIterable<string>
 {
+	// Get status
 	const status = await getVaccinationStatus(factory);
+
+	// Get matches
 	const matches = vaccinationSchedule.filter(date => isMatch(status, date));
+
+	// There are matches
 	for (const date of matches)
 		yield `Puedes vacunarte el ${isoToNice(date.date)}: ${date.name}`;
+
+	// No matches
 	if (!matches.length)
-	{
-		const subscribe = await factory.requestBoolean('¿Quieres que te avisemos cuando puedas recibir una dosis?');
-		if (subscribe)
-		{
-			const subscriptionResult = await factory.requestSubscribe<VaccineSubscriptionBase>(vaccinationStatusToVaccineSubscriptionBase(status));
-			if (subscriptionResult)
-				yield 'Te avisaremos cuando puedas recibir una nueva dosis';
-		}
 		yield 'Por el momento, no hay ninguna fecha programada que coincida con tus datos';
+
+	// Subscription
+	const subscribe = await factory.requestBoolean('¿Quieres que te avisemos cuando puedas recibir una dosis?');
+	if (subscribe)
+	{
+		const subscriptionResult = await factory.requestSubscribe<VaccineSubscriptionBase>(vaccinationStatusToVaccineSubscriptionBase(status));
+		if (subscriptionResult)
+			yield 'Te avisaremos cuando puedas recibir una nueva dosis';
 	}
 }
