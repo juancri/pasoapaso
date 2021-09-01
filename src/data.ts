@@ -2,7 +2,7 @@
 // Dependencies
 
 import { Comuna, EntityGroup, LocalVotacion, Region, VaccinationDate } from './types';
-import { createBooleanEntityGroup } from './util';
+import createBooleanEntityGroup from './util/createBooleanEntityGroup';
 
 // Comunas
 
@@ -17,7 +17,7 @@ export const regiones: Region[] = [
 		id: 1,
 		name: 'Tarapacá',
 		longName: 'Región de Tarapacá',
-		curfew: { start: '22:00', end: '05:00' }
+		curfew: { start: '00:00', end: '05:00' }
 	},
 	{
 		id: 2,
@@ -29,13 +29,13 @@ export const regiones: Region[] = [
 		id: 3,
 		name: 'Atacama',
 		longName: 'Región de Atacama',
-		curfew: { start: '22:00', end: '05:00' }
+		curfew: { start: '00:00', end: '05:00' }
 	},
 	{
 		id: 4,
 		name: 'Coquimbo',
 		longName: 'Región de Coquimbo',
-		curfew: { start: '22:00', end: '05:00' }
+		curfew: { start: '00:00', end: '05:00' }
 	},
 	{
 		id: 5,
@@ -47,7 +47,7 @@ export const regiones: Region[] = [
 		id: 13,
 		name: 'Metropolitana',
 		longName: 'Región Metropolitana',
-		curfew: { start: '22:00', end: '05:00' }
+		curfew: { start: '00:00', end: '05:00' }
 	},
 	{
 		id: 6,
@@ -125,7 +125,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Alto Hospicio",
-			"phase": 3,
+			"phase": 4,
 			"region": 1
 		},
 		{
@@ -180,13 +180,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Buin",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Bulnes",
@@ -220,18 +215,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Caldera",
-			"phase": 3,
+			"phase": 2,
 			"region": 3
 		},
 		{
 			"name": "Calera de Tango",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Calle Larga",
@@ -290,23 +280,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Cerrillos",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Cerro Navia",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Chaitén",
@@ -415,13 +395,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Colina",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Collipulli",
@@ -445,13 +420,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Conchalí",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Concón",
@@ -505,13 +475,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Curacaví",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Curaco de Vélez",
@@ -555,13 +520,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "El Bosque",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "El Carmen",
@@ -570,13 +530,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "El Monte",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "El Quisco",
@@ -600,17 +555,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Estación Central",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Florida",
-			"phase": 2,
+			"phase": 3,
 			"region": 8
 		},
 		{
@@ -625,8 +575,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Fresia",
-			"phase": 2,
-			"region": 10
+			"phase": 3,
+			"region": 10,
 		},
 		{
 			"name": "Frutillar",
@@ -640,7 +590,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Futrono",
-			"phase": 3,
+			"phase": 4,
 			"region": 14
 		},
 		{
@@ -680,7 +630,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Hualañé",
-			"phase": 2,
+			"phase": 3,
 			"region": 7
 		},
 		{
@@ -705,13 +655,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Huechuraba",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Illapel",
@@ -720,13 +665,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Independencia",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Iquique",
@@ -735,13 +675,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Isla de Maipo",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Isla de Pascua",
@@ -760,13 +695,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "La Cisterna",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "La Cruz",
@@ -780,23 +710,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "La Florida",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "La Granja",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "La Higuera",
@@ -810,23 +730,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "La Pintana",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "La Reina",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "La Serena",
@@ -860,13 +770,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Lampa",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Lanco",
@@ -880,13 +785,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Las Condes",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Lautaro",
@@ -900,7 +800,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Licantén",
-			"phase": 2,
+			"phase": 3,
 			"region": 7
 		},
 		{
@@ -925,38 +825,23 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Llay-Llay",
-			"phase": 3,
+			"phase": 4,
 			"region": 5
 		},
 		{
 			"name": "Lo Barnechea",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Lo Espejo",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Lo Prado",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Lolol",
@@ -1020,7 +905,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Lumaco",
-			"phase": 4,
+			"phase": 3,
 			"region": 9
 		},
 		{
@@ -1030,23 +915,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Macul",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Maipú",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Malloa",
@@ -1070,13 +945,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "María Pinto",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Maule",
@@ -1100,13 +970,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Melipilla",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Molina",
@@ -1205,13 +1070,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Padre Hurtado",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Padre Las Casas",
@@ -1230,17 +1090,12 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Paine",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Palena",
-			"phase": 3,
+			"phase": 4,
 			"region": 10
 		},
 		{
@@ -1250,7 +1105,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Panguipulli",
-			"phase": 2,
+			"phase": 3,
 			"region": 14
 		},
 		{
@@ -1260,13 +1115,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Papudo",
-			"phase": 3,
-			"region": 5,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Paredones",
@@ -1280,23 +1130,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Pedro Aguirre Cerda",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Pelarco",
-			"phase": 2,
-			"region": 7,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 3
-			}
+			"phase": 4,
+			"region": 7
 		},
 		{
 			"name": "Pelluhue",
@@ -1310,7 +1150,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Pencahue",
-			"phase": 4,
+			"phase": 3,
 			"region": 7
 		},
 		{
@@ -1330,13 +1170,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Petorca",
-			"phase": 3,
-			"region": 5,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Peumo",
@@ -1345,23 +1180,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Peñaflor",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Peñalolén",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Pica",
@@ -1385,13 +1210,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Pirque",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Pitrufquén",
@@ -1415,7 +1235,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Pozo Almonte",
-			"phase": 3,
+			"phase": 4,
 			"region": 1
 		},
 		{
@@ -1425,13 +1245,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Providencia",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Puchuncaví",
@@ -1445,23 +1260,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Pudahuel",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Puente Alto",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Puerto Montt",
@@ -1545,13 +1350,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Quilicura",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Quilleco",
@@ -1580,13 +1380,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Quinta Normal",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Quinta de Tilcoco",
@@ -1615,13 +1410,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Recoleta",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Renaico",
@@ -1630,13 +1420,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Renca",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Rengo",
@@ -1720,13 +1505,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "San Bernardo",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "San Carlos",
@@ -1775,23 +1555,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "San Joaquín",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "San José de Maipo",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "San Juan de la Costa",
@@ -1800,13 +1570,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "San Miguel",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "San Nicolás",
@@ -1840,13 +1605,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "San Ramón",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "San Rosendo",
@@ -1880,23 +1640,13 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Santiago",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Santo Domingo",
-			"phase": 3,
-			"region": 5,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 5
 		},
 		{
 			"name": "Sierra Gorda",
@@ -1905,13 +1655,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Talagante",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Talca",
@@ -1950,13 +1695,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Til Til",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Timaukel",
@@ -1965,7 +1705,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Tirúa",
-			"phase": 2,
+			"phase": 3,
 			"region": 8
 		},
 		{
@@ -1995,7 +1735,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Traiguén",
-			"phase": 3,
+			"phase": 4,
 			"region": 9
 		},
 		{
@@ -2005,13 +1745,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Tucapel",
-			"phase": 3,
-			"region": 8,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 8
 		},
 		{
 			"name": "Valdivia",
@@ -2030,7 +1765,7 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Vichuquén",
-			"phase": 2,
+			"phase": 3,
 			"region": 7
 		},
 		{
@@ -2065,13 +1800,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Vitacura",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		},
 		{
 			"name": "Viña del Mar",
@@ -2105,13 +1835,8 @@ export const comunas: EntityGroup<Comuna> = {
 		},
 		{
 			"name": "Ñuñoa",
-			"phase": 3,
-			"region": 13,
-			"next":
-			{
-				"date": "2021-08-28",
-				"phase": 4
-			}
+			"phase": 4,
+			"region": 13
 		}
 	]
 };
@@ -2136,148 +1861,6 @@ export const vaccineKinds = [
 ];
 
 export const vaccinationSchedule: VaccinationDate[] = [
-	// Lunes 23 de agosto
-	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-08-23',
-		dose: 3,
-		minAge: 78,
-		kind: 'Sinovac'
-	},
-	{
-		name: 'Primera dosis rezagados desde los 18 años con Sinovac, CanSino o AstraZeneca',
-		date: '2021-08-23',
-		dose: 1,
-		minAge: 18
-	},
-	{
-		name: 'Segunda dosis a población vacunada con Sinovac',
-		date: '2021-08-23',
-		dose: 2,
-		kind: 'Sinovac',
-		daysAfterPreviousDose: 28
-	},
-	{
-		name: 'Segunda dosis a población vacunada con AstraZeneca',
-		date: '2021-08-23',
-		dose: 2,
-		kind: 'AstraZeneca',
-		daysAfterPreviousDose: 28
-	},
-	// Martes 24 de agosto
-	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-08-24',
-		dose: 3,
-		minAge: 72,
-		maxAge: 77,
-		kind: 'Sinovac',
-		previousDoseMaxDate: '2021-04-04'
-	},
-	{
-		name: 'Primera dosis rezagados desde los 18 años con Sinovac, CanSino o AstraZeneca',
-		date: '2021-08-24',
-		dose: 1,
-		minAge: 18
-	},
-	{
-		name: 'Segunda dosis a población vacunada con Sinovac',
-		date: '2021-08-24',
-		dose: 2,
-		kind: 'Sinovac',
-		daysAfterPreviousDose: 28
-	},
-	{
-		name: 'Segunda dosis a población vacunada con AstraZeneca',
-		date: '2021-08-24',
-		dose: 2,
-		kind: 'AstraZeneca',
-		daysAfterPreviousDose: 28
-	},
-	// Miércoles 25 de agosto
-	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-08-25',
-		dose: 3,
-		minAge: 70,
-		maxAge: 71,
-		kind: 'Sinovac',
-		previousDoseMaxDate: '2021-04-04'
-	},
-	{
-		name: 'Primera dosis rezagados desde los 18 años con Sinovac, CanSino o AstraZeneca',
-		date: '2021-08-25',
-		dose: 1,
-		minAge: 18
-	},
-	{
-		name: 'Segunda dosis a población vacunada con Sinovac',
-		date: '2021-08-25',
-		dose: 2,
-		kind: 'Sinovac',
-		daysAfterPreviousDose: 28
-	},
-	{
-		name: 'Segunda dosis a población vacunada con AstraZeneca',
-		date: '2021-08-25',
-		dose: 2,
-		kind: 'AstraZeneca',
-		daysAfterPreviousDose: 28
-	},
-	// Jueves 26 de agosto
-	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-08-26',
-		dose: 3,
-		minAge: 68,
-		maxAge: 69,
-		kind: 'Sinovac',
-		previousDoseMaxDate: '2021-04-04'
-	},
-	{
-		name: 'Segunda dosis Pfizer a población vacunada con Pfizer entre el 12 y el 25 de julio',
-		date: '2021-08-26',
-		dose: 2,
-		kind: 'Pfizer',
-		previousDoseMinDate: '2021-07-12',
-		previousDoseMaxDate: '2021-07-25'
-	},
-	// Viernes 27 de agosto
-	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-08-27',
-		dose: 3,
-		minAge: 67,
-		maxAge: 68,
-		kind: 'Sinovac',
-		previousDoseMaxDate: '2021-04-04'
-	},
-	{
-		name: 'Segunda dosis Pfizer a población vacunada con Pfizer entre el 12 y el 25 de julio',
-		date: '2021-08-27',
-		dose: 2,
-		kind: 'Pfizer',
-		previousDoseMinDate: '2021-07-12',
-		previousDoseMaxDate: '2021-07-25'
-	},
-	// Lunes 30 de agosto
-	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-08-30',
-		dose: 3,
-		minAge: 66,
-		kind: 'Sinovac'
-	},
-	// Martes 31 de agosto
-	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-08-31',
-		dose: 3,
-		minAge: 65,
-		maxAge: 65,
-		kind: 'Sinovac',
-		previousDoseMaxDate: '2021-04-04'
-	},
 	// Miércoles 1 de septiembre
 	{
 		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
@@ -2287,6 +1870,13 @@ export const vaccinationSchedule: VaccinationDate[] = [
 		maxAge: 64,
 		kind: 'Sinovac',
 		previousDoseMaxDate: '2021-04-04'
+	},
+	{
+		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 8 de agosto',
+		date: '2021-09-01',
+		dose: 2,
+		kind: 'Pfizer',
+		previousDoseMaxDate: '2021-08-08'
 	},
 	// Jueves 2 de septiembre
 	{
@@ -2298,6 +1888,13 @@ export const vaccinationSchedule: VaccinationDate[] = [
 		kind: 'Sinovac',
 		previousDoseMaxDate: '2021-04-04'
 	},
+	{
+		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 8 de agosto',
+		date: '2021-09-02',
+		dose: 2,
+		kind: 'Pfizer',
+		previousDoseMaxDate: '2021-08-08'
+	},
 	// Viernes 3 de septiembre
 	{
 		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
@@ -2307,6 +1904,13 @@ export const vaccinationSchedule: VaccinationDate[] = [
 		maxAge: 60,
 		kind: 'Sinovac',
 		previousDoseMaxDate: '2021-04-04'
+	},
+	{
+		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 8 de agosto',
+		date: '2021-09-03',
+		dose: 2,
+		kind: 'Pfizer',
+		previousDoseMaxDate: '2021-08-08'
 	},
 ];
 

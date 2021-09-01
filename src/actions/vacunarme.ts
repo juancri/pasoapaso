@@ -1,7 +1,8 @@
 
 import { DateTime } from 'luxon';
 import { vaccinationSchedule, vaccineKinds } from '../data';
-import { DateSelectorConfig, EntityFactory, VaccinationDate, VaccinationStatus, VaccineDose } from '../types';
+import { DateSelectorConfig, EntityFactory, Person, VaccineDose } from '../types';
+import isDoseMatch from '../util/isDoseMatch';
 
 const BIRTHDAY_DATE_FROM = DateTime.fromISO('1900-01-01');
 const BIRTHDAY_DATE_CONFIG: DateSelectorConfig = {
@@ -48,13 +49,13 @@ function vaccineDoseToVaccineDoseSubscription(dose?: VaccineDose): VaccineDoseSu
 	};
 }
 
-function vaccinationStatusToVaccineSubscriptionBase(status: VaccinationStatus): VaccineSubscriptionBase
+function personToVaccineSubscriptionBase(person: Person): VaccineSubscriptionBase
 {
 	return {
-		dateOfBirth: jsDateToISO(status.dateOfBirth),
-		first: vaccineDoseToVaccineDoseSubscription(status.first),
-		second: vaccineDoseToVaccineDoseSubscription(status.second),
-		third: vaccineDoseToVaccineDoseSubscription(status.third)
+		dateOfBirth: jsDateToISO(person.dateOfBirth),
+		first: vaccineDoseToVaccineDoseSubscription(person.first),
+		second: vaccineDoseToVaccineDoseSubscription(person.second),
+		third: vaccineDoseToVaccineDoseSubscription(person.third)
 	};
 }
 
@@ -73,7 +74,7 @@ function getNextDoseConfig(previous: VaccineDose): DateSelectorConfig
 	};
 }
 
-async function getVaccinationStatus(factory: EntityFactory): Promise<VaccinationStatus>
+async function getVaccinationStatus(factory: EntityFactory): Promise<Person>
 {
 	const dateOfBirth = await factory.requestDate('¿Cuál es tu fecha de nacimiento?', BIRTHDAY_DATE_CONFIG);
 	const hasFirst = await factory.requestBoolean('¿Ya te vacunaste con alguna dosis?');
@@ -104,77 +105,6 @@ async function getVaccinationStatus(factory: EntityFactory): Promise<Vaccination
 	return { dateOfBirth, first, second, third };
 }
 
-function isMatch(status: VaccinationStatus, date: VaccinationDate): boolean
-{
-	// Check dose
-	if (date.dose === 1 && status.first)
-		return false;
-	if (date.dose === 2 && status.second)
-		return false;
-	if (date.dose === 3 && status.third)
-		return false;
-
-	// Check age range
-	const dateOfBirth = DateTime.fromJSDate(status.dateOfBirth);
-	const dateOfDose = DateTime.fromISO(date.date);
-	const personAge = dateOfDose.diff(dateOfBirth).as('years');
-	if (date.minAge && personAge < date.minAge)
-		return false;
-	if (date.maxAge && personAge > date.maxAge)
-		return false;
-
-	// Check vaccine kind
-	if (date.kind)
-	{
-		if (!status.first)
-			return false;
-		if (status.first.kind !== date.kind)
-			return false;
-	}
-
-	// Check days from the previous dose
-	if (date.daysAfterPreviousDose)
-	{
-		const previousDose = status.second ?? status.first;
-		if (!previousDose)
-			// This should not happen
-			return false;
-		const previousDoseDate = DateTime.fromJSDate(previousDose.date);
-		const daysAfterPreviousDose = dateOfDose.diff(previousDoseDate).as('days');
-		if (daysAfterPreviousDose < date.daysAfterPreviousDose)
-			return false;
-	}
-
-	// Check previous dose date range
-	if (date.previousDoseMinDate || date.previousDoseMaxDate)
-	{
-		const previousDose = status.second ?? status.first;
-		if (!previousDose)
-			// This should not happen
-			return false;
-		const previousDoseDate = DateTime.fromJSDate(previousDose.date);
-		if (date.previousDoseMinDate)
-		{
-			const minDate = DateTime.fromISO(date.previousDoseMinDate);
-			if (+previousDoseDate < +minDate)
-				return false;
-		}
-		if (date.previousDoseMaxDate)
-		{
-			const maxDate = DateTime.fromISO(date.previousDoseMaxDate);
-			if (+previousDoseDate > +maxDate)
-				return false;
-		}
-	}
-
-	// Extra checks?
-	if (date.check)
-		return date.check(status);
-
-	// Done!
-	return true;
-}
-
 function isoToNice(date: string): string
 {
 	return DateTime
@@ -189,7 +119,7 @@ export default async function* vacunarme(factory: EntityFactory): AsyncIterable<
 	const status = await getVaccinationStatus(factory);
 
 	// Get matches
-	const matches = vaccinationSchedule.filter(date => isMatch(status, date));
+	const matches = vaccinationSchedule.filter(date => isDoseMatch(status, date));
 
 	// There are matches
 	for (const date of matches)
@@ -203,7 +133,7 @@ export default async function* vacunarme(factory: EntityFactory): AsyncIterable<
 	const subscribe = await factory.requestBoolean('¿Quieres que te avisemos cuando puedas recibir una dosis?');
 	if (subscribe)
 	{
-		const subscriptionResult = await factory.requestSubscribe<VaccineSubscriptionBase>(vaccinationStatusToVaccineSubscriptionBase(status));
+		const subscriptionResult = await factory.requestSubscribe<VaccineSubscriptionBase>(personToVaccineSubscriptionBase(status));
 		if (subscriptionResult)
 			yield 'Te avisaremos cuando puedas recibir una nueva dosis';
 	}

@@ -51,7 +51,7 @@ export interface VaccineDose
 	kind: string
 }
 
-export interface VaccinationStatus
+export interface Person
 {
 	dateOfBirth: Date,
 	first?: VaccineDose;
@@ -79,7 +79,7 @@ export interface VaccinationDate
 	previousDoseMinDate?: string;
 	previousDoseMaxDate?: string;
 	// Extra checks
-	check?: (status: VaccinationStatus) => boolean;
+	check?: (status: Person) => boolean;
 }
 
 export interface LocalVotacion
