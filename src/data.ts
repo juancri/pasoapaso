@@ -1861,56 +1861,156 @@ export const vaccineKinds = [
 ];
 
 export const vaccinationSchedule: VaccinationDate[] = [
-	// Miércoles 1 de septiembre
+	// Lunes 6 de septiembre, 2021
 	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-09-01',
-		dose: 3,
-		minAge: 63,
-		maxAge: 64,
-		kind: 'Sinovac',
-		previousDoseMaxDate: '2021-04-04'
+		date: '2021-09-06',
+		dose: 1,
+		name: 'Primera dosis rezagados desde los 18 años con Sinovac, CanSino o AstraZeneca',
+		minAge: 18
 	},
 	{
-		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 8 de agosto',
-		date: '2021-09-01',
+		date: '2021-09-06',
 		dose: 2,
-		kind: 'Pfizer',
-		previousDoseMaxDate: '2021-08-08'
+		name: 'Segunda dosis a población vacunada con Sinovac',
+		kind: 'Sinovac',
+		daysAfterPreviousDose: 28
 	},
-	// Jueves 2 de septiembre
 	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-09-02',
+		date: '2021-09-06',
+		dose: 2,
+		name: 'Segunda dosis a población vacunada con AstraZeneca',
+		kind: 'AstraZeneca',
+		daysAfterPreviousDose: 28
+	},
+	{
+		date: '2021-09-06',
 		dose: 3,
+		name: 'Personas de 44 a 54 años vacunadas con segunda dosis Sinovac hasta el 7 de marzo',
+		kind: 'Sinovac',
+		minAge: 44,
+		maxAge: 54,
+		previousDoseMaxDate: '2021-03-07'
+	},
+	{
+		date: '2021-09-06',
+		dose: 3,
+		name: 'Personas de 65 o más años vacunadas con Sinovac hasta el 9 de mayo',
+		kind: 'Sinovac',
+		minAge: 65,
+		previousDoseMaxDate: '2021-05-09'
+	},
+	// Martes 7 de septiembre, 2021
+	{
+		date: '2021-09-07',
+		dose: 1,
+		name: 'Primera dosis rezagados desde los 18 años con Sinovac, CanSino o AstraZeneca',
+		minAge: 18
+	},
+	{
+		date: '2021-09-07',
+		dose: 2,
+		name: 'Segunda dosis a población vacunada con Sinovac',
+		kind: 'Sinovac',
+		daysAfterPreviousDose: 28
+	},
+	{
+		date: '2021-09-07',
+		dose: 2,
+		name: 'Segunda dosis a población vacunada con AstraZeneca',
+		kind: 'AstraZeneca',
+		daysAfterPreviousDose: 28
+	},
+	{
+		date: '2021-09-07',
+		dose: 3,
+		name: 'Personas de 38 a 43 años vacunadas con segunda dosis Sinovac hasta el 7 de marzo',
+		kind: 'Sinovac',
+		minAge: 38,
+		maxAge: 43,
+		previousDoseMaxDate: '2021-03-07'
+	},
+	{
+		date: '2021-09-07',
+		dose: 3,
+		name: 'Personas de 61 a 64 años vacunadas con Sinovac hasta el 9 de mayo',
+		kind: 'Sinovac',
 		minAge: 61,
-		maxAge: 62,
-		kind: 'Sinovac',
-		previousDoseMaxDate: '2021-04-04'
+		maxAge: 64,
+		previousDoseMaxDate: '2021-05-09'
 	},
+	// Miércoles 8 de septiembre
 	{
-		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 8 de agosto',
-		date: '2021-09-02',
+		date: '2021-09-08',
 		dose: 2,
-		kind: 'Pfizer',
-		previousDoseMaxDate: '2021-08-08'
+		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 15 de agosto',
+		previousDoseMaxDate: '2021-08-15'
 	},
-	// Viernes 3 de septiembre
 	{
-		name: 'Dosis de refuerzo para personas vacunadas con segunda dosis Sinovac hasta el 4 de abril',
-		date: '2021-09-03',
+		date: '2021-09-08',
 		dose: 3,
-		minAge: 55,
-		maxAge: 60,
+		name: 'Personas de 30 a 37 años vacunadas con segunda dosis Sinovac hasta el 7 de marzo',
 		kind: 'Sinovac',
-		previousDoseMaxDate: '2021-04-04'
+		minAge: 30,
+		maxAge: 37,
+		previousDoseMaxDate: '2021-03-07'
 	},
 	{
-		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 8 de agosto',
-		date: '2021-09-03',
+		date: '2021-09-08',
+		dose: 3,
+		name: 'Personas de 59 y 60 años vacunadas con Sinovac hasta el 9 de mayo',
+		kind: 'Sinovac',
+		minAge: 59,
+		maxAge: 60,
+		previousDoseMaxDate: '2021-05-09'
+	},
+	// Jueves 9 de septiembre
+	{
+		date: '2021-09-09',
 		dose: 2,
-		kind: 'Pfizer',
-		previousDoseMaxDate: '2021-08-08'
+		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 15 de agosto',
+		previousDoseMaxDate: '2021-08-15'
+	},
+	{
+		date: '2021-09-09',
+		dose: 3,
+		name: 'Personas de 25 a 29 años vacunadas con segunda dosis Sinovac hasta el 7 de marzo',
+		kind: 'Sinovac',
+		minAge: 25,
+		maxAge: 29,
+		previousDoseMaxDate: '2021-03-07'
+	},
+	{
+		date: '2021-09-09',
+		dose: 3,
+		name: 'Personas de 57 y 58 años vacunadas con Sinovac hasta el 9 de mayo',
+		kind: 'Sinovac',
+		minAge: 57,
+		maxAge: 58,
+		previousDoseMaxDate: '2021-05-09'
+	},
+	// Viernes 10 de septiembre
+	{
+		date: '2021-09-10',
+		dose: 2,
+		name: 'Segunda dosis Pfizer a población vacunada con Pfizer hasta el 15 de agosto',
+		previousDoseMaxDate: '2021-08-15'
+	},
+	{
+		date: '2021-09-10',
+		dose: 3,
+		name: 'Personas de 18 a 24 años vacunadas con segunda dosis Sinovac hasta el 7 de marzo',
+		kind: 'Sinovac',
+		minAge: 18,
+		maxAge: 24,
+		previousDoseMaxDate: '2021-03-07'
+	},
+	{
+		date: '2021-09-10',
+		dose: 3,
+		name: 'Personas de 55 o más años vacunadas con Sinovac hasta el 9 de mayo',
+		kind: 'Sinovac',
+		minAge: 55,
+		previousDoseMaxDate: '2021-05-09'
 	},
 ];
 
