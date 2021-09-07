@@ -491,7 +491,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Curarrehue",
 			"phase": 4,
-			"region": 9
+			"region": 9,
+			"next":
+			{
+				"date": "2021-09-08",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Curepto",
@@ -1016,7 +1021,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Navidad",
 			"phase": 3,
-			"region": 6
+			"region": 6,
+			"next":
+			{
+				"date": "2021-09-08",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Negrete",
@@ -1276,7 +1286,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Puerto Octay",
 			"phase": 2,
-			"region": 10
+			"region": 10,
+			"next":
+			{
+				"date": "2021-09-08",
+				"phase": 3
+			}
 		},
 		{
 			"name": "Puerto Varas",
@@ -1686,7 +1701,12 @@ export const comunas: EntityGroup<Comuna> = {
 		{
 			"name": "Teodoro Schmidt",
 			"phase": 3,
-			"region": 9
+			"region": 9,
+			"next":
+			{
+				"date": "2021-09-08",
+				"phase": 4
+			}
 		},
 		{
 			"name": "Tierra Amarilla",
